@@ -257,8 +257,6 @@
                 <th>Modelo</th>
                 <th>Ano</th>
                 <th>Preço</th>
-                <th>Tipo de Preço</th>
-                <th>A partir de</th>
                 <th>Status</th>
                 <th>Descrição</th>
                 <th><a href="cadastroVeiculo.html">+Add</a></th>
@@ -273,11 +271,9 @@
                                     <td data-label='Modelo'>{$carro->getModelo()}</td>
                                     <td data-label='Ano'>{$carro->getAno()}</td>
                                     <td data-label='Preço'>MZN " . number_format($carro->getPreco(), 2, '.', ',') ."</td>
-                                    <td data-label='Tipo de Preço'>{$carro->getTipo()}</td>
-                                    <td data-label='A partir de'>{$carro->getData()}</td>
                                     <td data-label='Status'>{$carro->getStatus()}</td>
                                     <td data-label='Descrição'>{$carro->getDescricao()}</td>
-                                    <td data-label='Ações'><a href='updateVeiculo.php'>Modificar</a> &nbsp;&nbsp; <a href='#'>Status</a> &nbsp;&nbsp; <a href='removeVeiculo.php?id={$carro->getID()}'>Remover</a></td>
+                                    <td data-label='Ações'><a href='updateVeiculo.php'>Modificar</a> &nbsp;&nbsp; <a href='removeVeiculo.php?id={$carro->getID()}'>Remover</a></td>
                                 </tr>
                             ";  
                     }

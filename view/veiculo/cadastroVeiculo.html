@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <p><a href="../home.php"><- Voltar ao Início</a></p>
         <h1>Formulário de Cadastro de Veículos</h1>
         <form action="cadastrarVeiculo.php" method="post">
             <div class="inputs code">
@@ -29,7 +30,7 @@
                     <option value="Suzuki">Suzuki</option>
                     <option value="Toyota">Toyota</option>
                     <option value="Volvo">Volvo</option>
-                    <option value="Volks-Wagen (VW)">Volks-Wagen (VW)</option>
+                    <option value="Volkswagen (VW)">Volkswagen (VW)</option>
                 </select>
                 <label for="marca">Marca</label>
             </div>
@@ -44,16 +45,6 @@
             <div class="inputs preco">
                 <input type="number" name="preco" id="preco" maxlength="8" placeholder="Digite o preço do veículo" required>
                 <label for="preco">Preço</label>
-            </div>
-            <div class="radios tipo">
-                <label>Tipo de Preço:</label><br>
-                <input type="radio" name="tipo" id="tipo1" value="Venda" required checked><label for="tipo1">Venda</label>
-                <input type="radio" name="tipo" id="tipo2" value="Promocional"><label for="tipo2">Promocional</label>
-                <input type="radio" name="tipo" id="tipo3" value="Aluguer"><label for="tipo3">Aluguer</label>
-            </div>
-            <div class="inputs data">
-                <input type="date" name="data" id="data" placeholder="Data da definição/alteração do preço" required>
-                <label for="data">Preço atual desde</label>
             </div>
             <div class="radios status">
                 <label>Status do veículo:</label><br>

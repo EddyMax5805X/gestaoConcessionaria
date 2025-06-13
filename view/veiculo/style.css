@@ -16,7 +16,6 @@ body {
 }
 label {
     color: #2a3a99;
-
 }
 .container {
     background: #d5dcff;
@@ -84,7 +83,17 @@ form {
         6px 6px 10px #a0afff,
         -6px -6px 10px #e2e7ff;
 }
-
+a {
+    color: #2a3a99;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;     
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+a:hover {
+    color: #5671f5;
+    text-decoration: underline;
+}
 .inputs input:focus + label, .inputs select:focus + label, .inputs textarea:focus + label, .inputs textarea:not(:placeholder-shown) + label, .inputs select:not(:placeholder-shown) + label,
 .inputs input:not(:placeholder-shown) + label {
     display: unset;
