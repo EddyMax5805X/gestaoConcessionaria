@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro de Veículos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Cadastro de Veículos</h1>
+        <form action="cadastrarVeiculo.php" method="post">
+            <div class="inputs code">
+                <input type="number" name="id" id="id" placeholder="Digite o ID (código) do Veículo">
+                <label for="id">Código</label>
+            </div>
+            <div class="inputs marca">
+                <select name="marca" id="marca" required>
+                    <option value="" hidden disabled selected>Selecione a marca do veículo</option>
+                    <option value="Aston-Martin">Aston-Martin</option>
+                    <option value="Audi">Audi</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Ferarri">Ferarri</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Lamborghini">Lamborghini</option>
+                    <option value="Mac-Laren">Mac-Laren</option>
+                    <option value="Mercedes">Mercedes</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Suzuki">Suzuki</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Volvo">Volvo</option>
+                    <option value="Volks-Wagen (VW)">Volks-Wagen (VW)</option>
+                </select>
+                <label for="marca">Marca</label>
+            </div>
+            <div class="inputs modelo">
+                <input type="text" name="modelo" id="modelo" required placeholder="Digite o modelo do veículo">
+                <label for="modelo">Modelo</label>
+            </div>
+            <div class="inputs ano">
+                <input type="number" name="ano" id="ano" min="1950" max="2025" placeholder="Digite o ano de fabrico do veículo">
+                <label for="ano">Ano de fabrico</label>
+            </div>
+            <div class="inputs preco">
+                <input type="number" name="preco" id="preco" maxlength="8" placeholder="Digite o preço do veículo" required>
+                <label for="preco">Preço</label>
+            </div>
+            <div class="radios tipo">
+                <label>Tipo de Preço:</label><br>
+                <input type="radio" name="tipo" id="tipo1" value="Venda" required checked><label for="tipo1">Venda</label>
+                <input type="radio" name="tipo" id="tipo2" value="Promocional"><label for="tipo2">Promocional</label>
+                <input type="radio" name="tipo" id="tipo3" value="Aluguer"><label for="tipo3">Aluguer</label>
+            </div>
+            <div class="inputs data">
+                <input type="date" name="data" id="data" placeholder="Data da definição/alteração do preço" required>
+                <label for="data">Preço atual desde</label>
+            </div>
+            <div class="radios status">
+                <label>Status do veículo:</label><br>
+                <input type="radio" name="status" id="status1" value="Disponivel" required checked><label for="status1">Disponivel</label>
+                <input type="radio" name="status" id="status2" value="Vendido"><label for="status2">Vendido</label>
+                <input type="radio" name="status" id="status3" value="Reservado"><label for="status3">Reservado</label>
+            </div>
+            <div class="inputs desc">
+                <textarea name="desc" id="desc" placeholder="Descrição do veículo (caracteristicas, especificações, etc)"></textarea>
+                <label for="desc">Descrição</label>
+            </div>
+            <span id="msgErro"></span>
+            <div class="btns">
+                <input type="reset" value="Limpar" name="limpar" class="buttons limpar">
+                <input type="submit" value="Submeter"  name="submit" class="buttons submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
