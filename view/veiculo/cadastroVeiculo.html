@@ -8,7 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <p><a href="../home.php"><- Voltar ao Início</a></p>
+        <div class="links">
+            <p><a href="../home.php"><- Voltar ao Início</a></p>
+            <p><a href="listarVeiculo.php">Listar Veículos -></a></p>
+        </div>
+    
         <h1>Formulário de Cadastro de Veículos</h1>
         <form action="cadastrarVeiculo.php" method="post">
             <div class="inputs code">
@@ -53,7 +57,7 @@
                 <input type="radio" name="status" id="status3" value="Reservado"><label for="status3">Reservado</label>
             </div>
             <div class="inputs desc">
-                <textarea name="desc" id="desc" placeholder="Descrição do veículo (caracteristicas, especificações, etc)"></textarea>
+                <textarea name="desc" id="desc" placeholder="Descrição do veículo (caracteristicas, especificações, etc)" ></textarea>
                 <label for="desc">Descrição</label>
             </div>
             <span id="msgErro"></span>

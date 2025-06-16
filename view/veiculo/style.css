@@ -37,6 +37,12 @@ label {
     text-align: center;
     letter-spacing: 0.03em;
 }
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+}
 form {
     width: 100%;
 }

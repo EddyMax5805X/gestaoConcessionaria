@@ -129,7 +129,7 @@
 
         /* Corte específico para coluna Descrição */
         tbody td[data-label="Descrição"] {
-            max-width: 200px;  /* largura máxima para o texto da descrição */
+            max-width: 250px;  /* largura máxima para o texto da descrição */
             white-space: nowrap;        /* não quebra linha */
             overflow: hidden;
             text-overflow: ellipsis;
@@ -273,7 +273,7 @@
                                     <td data-label='Preço'>MZN " . number_format($carro->getPreco(), 2, '.', ',') ."</td>
                                     <td data-label='Status'>{$carro->getStatus()}</td>
                                     <td data-label='Descrição'>{$carro->getDescricao()}</td>
-                                    <td data-label='Ações'><a href='updateVeiculo.php'>Modificar</a> &nbsp;&nbsp; <a href='removeVeiculo.php?id={$carro->getID()}'>Remover</a></td>
+                                    <td data-label='Ações'><a href='updateVeiculo.php?id={$carro->getID()}'>Modificar</a> &nbsp;&nbsp; <a href='removeVeiculo.php?id={$carro->getID()}'>Remover</a></td>
                                 </tr>
                             ";  
                     }
