@@ -34,9 +34,6 @@ h1 {
     border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow:
-        6px 6px 10px #aab8ff,
-        -6px -6px 10px #ffffff;
     transition: background-color 0.3s ease;
 }
 
@@ -45,7 +42,6 @@ h1 {
 }
 
 .Adicionar a {
-    color: #fff;
     text-decoration: none;
 }
 
