@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: #e3e9ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+form {
+    background: #d5dcff;
+    border-radius: 30px;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow:
+        20px 20px 60px #aab8ff,
+        -20px -20px 60px #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+form h1 {
+    font-weight: 700;
+    color: #2a3a99;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+form div {
+    position: relative;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #5664c7;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background: #d5dcff;
+    color: #2a3a99;
+    box-shadow:
+        inset 6px 6px 8px #a0afff,
+        inset -6px -6px 8px #e2e7ff;
+    transition: box-shadow 0.4s ease;
+}
+
+form input:focus {
+    outline: none;
+    box-shadow:
+        inset 3px 3px 6px #7288ff,
+        inset -3px -3px 6px #e6ecff,
+        0 0 8px 2px rgba(50, 70, 255, 0.45);
+}
+
+form input[type="submit"] {
+    padding: 16px 0;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2a3a99;
+    background: #d5dcff;
+    border-radius: 20px;
+    border: none;
+    box-shadow:
+        6px 6px 10px #a0afff,
+        -6px -6px 10px #e2e7ff;
+    cursor: pointer;
+    transition:
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+    user-select: none;
+}
+
+form input[type="submit"]:hover {
+    box-shadow:
+        inset 5px 5px 8px #7288ff,
+        inset -5px -5px 8px #cbd6ff;
+    background-color: #2a3a99;
+    color: #f0f4ff;
+    font-weight: 800;
+}
