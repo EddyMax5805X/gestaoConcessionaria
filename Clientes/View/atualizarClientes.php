@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         <div>
             <label for="id">ID</label>
-            <input type="text" name="id" id="id" value="<?php echo $id; ?>" disabled>
+            <input type="text" name="id" id="id" value="<?php echo $id; ?>" readonly>
         </div>
 
         <div>
