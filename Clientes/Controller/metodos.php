@@ -11,8 +11,11 @@ function adicionarCliente($cliente) {
             VALUES ('$nome', '$email', '$telefone', '$endereco')";
 
     $resultado = mysqli_query($conexao, $sql);
+    
+
 
     if ($resultado) {
+        echo"<script>alert('Cliente adicionado com sucesso');</script>";
         header("Location: ../View/verClientes.php");
         exit();
     } else {
