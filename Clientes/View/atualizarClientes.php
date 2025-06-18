@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
 
-        $sql = "SELECT * FROM clientes WHERE id = '$id'";
+        $sql = "SELECT * FROM cliente WHERE id = '$id'";
         $resultado = mysqli_query($conexao, $sql);
 
         if ($resultado && mysqli_num_rows($resultado) > 0) {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $id = $row["id"];
             $nome = $row["nome"];
             $email = $row["email"];
-            $telefone = $row["telefone"];
+            $telefone = $row["contacto"];
             $endereco = $row["endereco"];
         } else {
             echo "Cliente não encontrado.";
@@ -48,42 +48,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/cadastroClientes.css">
+    <link rel="stylesheet" href="../style/Cliente.css">
     <title>Atualizar Cliente</title>
 </head>
+
 <body>
-    <form method="post">
-        <h1>Atualizar Cliente</h1>
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../View/verClientes.php">Voltar</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <div>
-            <label for="id">ID</label>
-            <input type="text" name="id" id="id" value="<?php echo $id; ?>" readonly>
-        </div>
+        <form method="post">
+            <h1>Atualizar Cliente</h1>
 
-        <div>
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>">
-        </div>
+            <div>
+                <label for="id">ID</label>
+                <input type="text" name="id" id="id" value="<?php echo $id; ?>" readonly>
+            </div>
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="<?php echo $email; ?>">
-        </div>
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>">
+            </div>
 
-        <div>
-            <label for="telefone">Telefone</label>
-            <input type="text" name="telefone" id="telefone" value="<?php echo $telefone; ?>">
-        </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="<?php echo $email; ?>">
+            </div>
 
-        <div>
-            <label for="endereco">Endereço</label>
-            <input type="text" name="endereco" id="endereco" value="<?php echo $endereco; ?>">
-        </div>
+            <div>
+                <label for="telefone">Contacto</label>
+                <input type="text" name="telefone" id="telefone" value="<?php echo $telefone; ?>">
+            </div>
 
-        <input type="submit" value="Atualizar">
-    </form>
+            <div>
+                <label for="endereco">Endereço</label>
+                <input type="text" name="endereco" id="endereco" value="<?php echo $endereco; ?>">
+            </div>
+
+            <input type="submit" value="Atualizar">
+        </form>
+    </div>
 </body>
+
 </html>

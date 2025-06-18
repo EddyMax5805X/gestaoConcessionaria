@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login - Gestão Concessionária</title>
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="../style/login.css" />
 </head>
 <body>
     <div class="container">
         <h1>Login - Gestão de Concessionária</h1>
-        <form action="login.php" method="post">
+        <form action="../Controller/Controllerlogin.php" method="post">
 
             <div class="login-method">
                 <input type="checkbox" id="loginEmail" name="loginEmail" onclick="loginMethod()" />
@@ -39,6 +39,6 @@
             </div>
         </form>
     </div>
-    <script src="login.js"></script>
+    <script src="../Controller/login.js"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php 
-    include_once("..\..\controller\controllerVeiculo.php");
+    include_once("../Controller/controllerVeiculo.php");
+    include_once("../Controller/veiculo.php");
 
     if (isset($_POST['submit'])) {
-        $code = $_POST['id'];
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
         $ano = $_POST['ano'];
@@ -10,10 +10,10 @@
         $status = $_POST['status'];
         $desc = $_POST['desc'];
         
-        if (empty($code) or empty($marca) or empty($modelo) or empty($ano) or empty($preco) or empty($status) or empty($desc)) {
+        if (empty($marca) or empty($modelo) or empty($ano) or empty($preco) or empty($status) or empty($desc)) {
             echo "<script>alert('Por favor, preencha todos os campos!')</script>";
         } else {
-            $veiculo = new Veiculo($code, $marca, $modelo, $ano, $preco, $status, $desc);
+            $veiculo = new Veiculo(null, $marca, $modelo, $ano, $preco, $status, $desc);
             addVeiculo($veiculo);
         }
     }

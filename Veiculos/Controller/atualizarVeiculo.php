@@ -1,5 +1,6 @@
 <?php 
-    include_once("../../controller/controllerVeiculo.php");
+    include_once("../Controller/controllerVeiculo.php");
+    
     if (isset($_POST['submit'])) {
         $code = $_POST['id'];
         $marca = $_POST['marca'];

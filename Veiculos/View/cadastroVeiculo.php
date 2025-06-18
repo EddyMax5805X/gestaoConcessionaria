@@ -4,21 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Cadastro de Veículos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
     <div class="container">
         <div class="links">
-            <p><a href="../home.php"><- Voltar ao Início</a></p>
-            <p><a href="listarVeiculo.php">Listar Veículos -></a></p>
+            <p><a href="../../Home/home.php">Volta ao inicio</a></p>
+            <p><a href="../View/listarVeiculo.php">Listar Veículos -></a></p>
         </div>
     
         <h1>Formulário de Cadastro de Veículos</h1>
-        <form action="cadastrarVeiculo.php" method="post">
-            <div class="inputs code">
-                <input type="number" name="id" id="id" placeholder="Digite o ID (código) do Veículo">
-                <label for="id">Código</label>
-            </div>
+        <form action="../Controller/cadastrarVeiculo.php" method="post">
             <div class="inputs marca">
                 <select name="marca" id="marca" required>
                     <option value="" hidden disabled selected>Selecione a marca do veículo</option>

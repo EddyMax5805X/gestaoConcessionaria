@@ -22,37 +22,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/cadastroClientes.css">
+    <link rel="stylesheet" href="../style/Cliente.css">
     <title>Cadastrar Cliente</title>
 </head>
+
 <body>
-    <form action="" method="post">
-        <h1>Adicionar Cliente</h1>
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../View/verClientes.php">Voltar</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <div>
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" required>
-        </div>
+        <form action="" method="post">
+            <h1>Adicionar Cliente</h1>
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
-        </div>
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" required>
+            </div>
 
-        <div>
-            <label for="telefone">Telefone</label>
-            <input type="text" name="telefone" id="telefone" required>
-        </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
 
-        <div>
-            <label for="endereco">Endereço</label>
-            <input type="text" name="endereco" id="endereco" required>
-        </div>
+            <div>
+                <label for="telefone">Contacto</label>
+                <input type="text" name="telefone" id="telefone" required>
+            </div>
 
-        <input type="submit" value="Adicionar">
-    </form>
+            <div>
+                <label for="endereco">Endereço</label>
+                <input type="text" name="endereco" id="endereco" required>
+            </div>
+
+            <input type="submit" value="Adicionar">
+        </form>
+    </div>
 </body>
+
 </html>

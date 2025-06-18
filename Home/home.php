@@ -82,12 +82,12 @@
     <div class="container">
         <h1>Menu</h1>
         <div class="btns">
-            <a href="#"><button class="buttons">Cadastrar Cliente</button></a>
-            <a href="#"><button class="buttons">Listar Clientes</button></a>
+            <a href="../Clientes/View/cadastroClientes.php"><button class="buttons">Cadastrar Cliente</button></a>
+            <a href="../Clientes/View/verClientes.php"><button class="buttons">Listar Clientes</button></a>
             <a href="#"><button class="buttons">Registrar Venda</button></a>
             <a href="#"><button class="buttons">Tabela de Vendas</button></a>
-            <a href="veiculo/cadastroVeiculo.html"><button class="buttons">Cadastrar Veiculo</button></a>
-            <a href="veiculo/listarVeiculo.php"><button class="buttons">Listar Veiculos</button></a>
+            <a href="../Veiculos/View/cadastroVeiculo.php"><button class="buttons">Cadastrar Veiculo</button></a>
+            <a href="../Veiculos/View/listarVeiculo.php"><button class="buttons">Listar Veiculos</button></a>
         </div>
     </div>
 </body>

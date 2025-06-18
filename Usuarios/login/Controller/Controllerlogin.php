@@ -1,5 +1,5 @@
 <?php 
-    include_once("..\..\controller\controllerUser.php");
+    include_once("../Controller/controllerUser.php");
 
     if (isset($_POST["entrar"])) {
         $unome = $_POST["username"];

@@ -7,7 +7,7 @@ function adicionarCliente($cliente) {
     $telefone = $conexao->real_escape_string($cliente->getTelefone());
     $endereco = $conexao->real_escape_string($cliente->getEndereco());
 
-    $sql = "INSERT INTO clientes (nome, email, telefone, endereco)
+    $sql = "INSERT INTO cliente (nome, email, contacto, endereco)
             VALUES ('$nome', '$email', '$telefone', '$endereco')";
 
     $resultado = mysqli_query($conexao, $sql);
@@ -23,7 +23,7 @@ function adicionarCliente($cliente) {
 function removerCliente($id) {
     global $conexao;
 
-    $sql = "DELETE FROM clientes WHERE id = '$id'";
+    $sql = "DELETE FROM cliente WHERE id = '$id'";
 
     $resultado = mysqli_query($conexao, $sql);
 
@@ -44,10 +44,10 @@ function atualizarCliente($cliente) {
     $telefone = $conexao->real_escape_string($cliente->getTelefone());
     $endereco = $conexao->real_escape_string($cliente->getEndereco());
 
-    $sql = "UPDATE clientes SET
+    $sql = "UPDATE cliente SET
                 nome = '$nome',
                 email = '$email',
-                telefone = '$telefone',
+                contacto = '$telefone',
                 endereco = '$endereco'
             WHERE id = '$id'";
 

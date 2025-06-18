@@ -16,6 +16,7 @@ DEFAULT COLLATE = 'utf8_general_ci';
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+use gestao_concessionaria;
 
 --
 -- Table structure for table `cliente`
@@ -57,7 +58,7 @@ CREATE TABLE `user` (
   `senha` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `unome` (`unome`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,8 +66,8 @@ CREATE TABLE `user` (
 --
 
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (11,'Ednilson','Paulo','EddyMax5805X','eddy@example.com','asd123'),(18,'Administrador',NULL,'admin','admin@gmail.com','123');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Ednilson','Paulo','EddyMax5805X','eddy@example.com','asd123'),(2,'Administrador','ad','admin','admin@gmail.com','123'), (3, 'Naran', 'Pressotamo', 'naranpressotamo@gmail.com', '234', 'senha123');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */
 
 --
 -- Table structure for table `veiculo`
@@ -84,15 +85,16 @@ CREATE TABLE `veiculo` (
   `status` enum('Disponivel','Vendido','Reservado') NOT NULL DEFAULT 'Disponivel',
   `descricao` text NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+select * from veiculo;
 --
 -- Dumping data for table `veiculo`
 --
 
 /*!40000 ALTER TABLE `veiculo` DISABLE KEYS */;
-INSERT INTO `veiculo` VALUES (2,'Toyota','Supra MK5',2024,3458200.00,'Disponivel','asdashgjdhas hashsh hhgg g h hhggf jhgghfhghg ghfh hg hg hg  h fg  fg  f'),(3,'Toyota','Hilux',2020,2658540.00,'Disponivel','ahhhhh'),(4,'BMW','M5',2013,986580.00,'Reservado','Ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+INSERT INTO `veiculo` VALUES (1,'Toyota','Supra MK5',2024,3458200.00,'Disponivel','asdashgjdhas hashsh hhgg g h hhggf jhgghfhghg ghfh hg hg hg  h fg  fg  f'),(2,'Toyota','Hilux',2020,2658540.00,'Disponivel','ahhhhh'),(3,'BMW','M5',2013,986580.00,'Reservado','Ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
 /*!40000 ALTER TABLE `veiculo` ENABLE KEYS */;
 
 --

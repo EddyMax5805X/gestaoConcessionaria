@@ -1,5 +1,5 @@
 <?php 
-    include_once("../../controller/controllerVeiculo.php");
+    include_once("../Controller/controllerVeiculo.php");
 
     $code = $_GET['id'];
     removeVeiculo($code);
