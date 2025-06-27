@@ -1,6 +1,6 @@
 <?php
-    include_once("../Controller/controllerVeiculo.php");
-    include_once("../Controller/veiculo.php");
+    include_once("../Controller/Vendas.php");
+    include_once("../Controller/vendas.php");
 
     if (isset($_POST['submit'])) {
         $id = $_POST['id'];
@@ -13,7 +13,7 @@
         if (empty($id) or empty($id_cliente) or empty($id_veiculo) or empty($data) or empty($valor_pago) ) {
             echo "<script>alert('Por favor, preencha todos os campos!')</script>";
         } else {
-            $venda = new Veiculo(null, $id_cliente, $id_veiculo, $data, , $valor_pago);
+           $venda = new Venda(null, $id_cliente, $id_veiculo, $data, $valor_pago);
             addVenda($venda);
         }
     }

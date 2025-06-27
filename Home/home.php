@@ -84,8 +84,8 @@
         <div class="btns">
             <a href="../Clientes/View/cadastroClientes.php"><button class="buttons">Cadastrar Cliente</button></a>
             <a href="../Clientes/View/verClientes.php"><button class="buttons">Listar Clientes</button></a>
-            <a href="#"><button class="buttons">Registrar Venda</button></a>
-            <a href="#"><button class="buttons">Tabela de Vendas</button></a>
+            <a href="../Vendas/View/cadastroVendas.php"><button class="buttons">Registrar Venda</button></a>
+            <a href="../Vendas/View/listarVendas.php"><button class="buttons">Tabela de Vendas</button></a>
             <a href="../Veiculos/View/cadastroVeiculo.php"><button class="buttons">Cadastrar Veiculo</button></a>
             <a href="../Veiculos/View/listarVeiculo.php"><button class="buttons">Listar Veiculos</button></a>
         </div>
