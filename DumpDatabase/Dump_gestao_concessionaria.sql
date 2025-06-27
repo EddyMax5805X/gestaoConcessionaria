@@ -66,7 +66,7 @@ CREATE TABLE `user` (
 --
 
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Ednilson','Paulo','EddyMax5805X','eddy@example.com','asd123'),(2,'Administrador','ad','admin','admin@gmail.com','123'), (3, 'Naran', 'Pressotamo', 'naranpressotamo@gmail.com', '234', 'senha123');
+INSERT INTO `user` VALUES (1,'Ednilson','Paulo','EddyMax5805X','eddy@example.com','asd123'),(2,'Administrador','ad','admin','admin@gmail.com','123'), (3, 'Naran', 'Pressotamo', 'Nato', 'naranpressotamo@gmail.com', 'senha123');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */
 
 --

@@ -7,10 +7,14 @@
         $sql = "SELECT * FROM user WHERE unome='$username' AND senha='$password' OR email='$email' AND senha='$password'";
         $result = mysqli_query($conexao, $sql);
         if ($result && mysqli_num_rows($result) > 0) {
-            header("Location: ../../../Home/home.php");
+            while($row = mysqli_fetch_row($result)){
+                $nome = $row[1];
+                $sobreNome = $row[2];
+                $emaill = $row[4];
+                return $usuario = new User(null, $nome, $sobreNome, null, $emaill, null);
+            }
         } else {
             echo "<script>alert('Usuário ou senha incorretos!');</script>";
-            
             include "../View/login.php";
         }
     }
