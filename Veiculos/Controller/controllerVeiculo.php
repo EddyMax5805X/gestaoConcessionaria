@@ -54,14 +54,18 @@
         $sql = "UPDATE veiculo SET marca='$marca', modelo='$modelo', ano=$ano, preco=$preco, status='$status', descricao='$desc' WHERE id='$id'";
         $result = mysqli_query($conexao, $sql);
         if ($result) {
-            echo "<script>alert('Veículo nº{$id} atualizado com sucesso!')</script>";
-            include '../View/listarVeiculo.php';
-            header("Location: ../View/listarVeiculo.php");
+            echo "<script>
+                alert('Veículo atualizado com sucesso!');
+                window.location.href = '../View/listarVeiculo.php';
+            </script>";
         } else {
-            echo "<script>alert('Erro na atualização do veículo!')</script>";
-            include '../View/listarVeiculo.php';
-        } 
+            echo "<script>
+                alert('Erro na atualização do veículo!');
+                window.location.href = '../View/listarVeiculo.php';
+            </script>";
+        }
     }
+
     function removeVeiculo($id) {
         global $conexao;
         $sql = "DELETE FROM veiculo WHERE id='$id'";

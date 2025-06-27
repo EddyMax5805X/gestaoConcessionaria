@@ -1,23 +1,38 @@
 <?php
+
+    session_start();
+
+    $nome =  $_SESSION['nome'];
+    $sobrenome = $_SESSION['sobrenome'];
+    $email = $_SESSION['email']
+
+?>
+
+<?php
 include_once("../Controller/controllerVeiculo.php");
 $veiculos = listOfVeiculos();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/listaDeVeiculos.css">
     <title>Lista de Veiculos</title>
 </head>
 
 <body>
     <div class="container">
+            <div class="perfil">
+                <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
         <header>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="../index.php">Início</a></li>
+                    <li><a href="../../Home/home.php">Início</a></li>
                     <li><a href="../View/cadastroVeiculo.php">Cadastrar Veículo</a></li>
                     <!-- Adicione ou remova <li> conforme necessário -->
                 </ul>

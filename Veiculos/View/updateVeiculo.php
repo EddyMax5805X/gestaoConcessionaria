@@ -1,3 +1,13 @@
+<?php
+
+    session_start();
+
+    $nome =  $_SESSION['nome'];
+    $sobrenome = $_SESSION['sobrenome'];
+    $email = $_SESSION['email']
+
+?>
+
 <?php 
     include_once("../Controller/controllerVeiculo.php");
     $id = $_GET['id'];
@@ -8,10 +18,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Formulário de Atualização de Veículos</title>
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
+      <div class="perfil">
+                <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
     <div class="container">
         <div class="links">
             <p><a href="../home.php"><- Voltar ao Início</a></p>
