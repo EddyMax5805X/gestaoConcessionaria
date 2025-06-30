@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <div class="container">
         <div class="links">
-            <a href="../Home/home.php">Voltar ao Início</a>
+            <a href="../../Home/home.php">Voltar ao Início</a>
             <a href="../View/listarVendas.php">Listar Vendas</a>
         </div>
 
