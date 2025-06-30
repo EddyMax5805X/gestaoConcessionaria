@@ -134,9 +134,9 @@ form select:focus {
     border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    bottom: 630px;
-    right: 100px;
+    position: sticky;
+    top: 10px;
+    margin-left: 1100px;
 }
 
 .perfil i{

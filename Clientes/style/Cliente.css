@@ -213,6 +213,8 @@ form .bnt a{
     backdrop-filter: blur(20px);
     border-bottom: 1px solid black;
     margin-bottom: 10px;
+    position: sticky;
+    top: 10px;
 }
 
 .perfil i{

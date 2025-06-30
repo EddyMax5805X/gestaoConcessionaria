@@ -110,8 +110,8 @@
             border-bottom: 1px solid black;
             margin-bottom: 30px;
             margin-top: -100px;
-            position: absolute;
-            bottom: 620px;
+            position: sticky;
+            top: 10px;
         }
 
         .perfil i {
