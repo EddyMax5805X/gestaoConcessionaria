@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,36 +15,20 @@
             <video src="Home.mp4" autoplay muted loop></video>
         </div>
         <div class="box">
+            <header>
+                <nav id="navbar" class="nav-enhanced">
+                    <i class="fa-solid fa-house"></i>
+                    <ul id="nav_list">
+                        <li class="nav_item"><a href="../Clientes/View/verClientes.php">Clientes</a></li>
+                        <li class="nav_item"><a href="../Veiculos/View/listarVeiculo.php">Veiculos</a></li>
+                        <li class="nav_item"><a href="../Vendas/View/listarVendas.php">Vendas</a></li>
+                    </ul>
+            </header>
             <div class="perfil">
                 <p><span>Naran Pressotamo Nato</span></br>naranpressotamo@gmail.com</p>
                 <i class="fa-solid fa-circle-user"></i>
             </div>
-                <div class="conteiner">
-                    <div class="veiculo">
-                        <h1>Veiculo</h1>
-                        <ul>
-                            <li><a href="#">Cadastrar veiculo</a></li>
-                            <li><a href="#">Lista de veiculos</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="cliente">
-                        <h1>Cliente</h1>
-                        <ul>
-                            <li><a href="#">Cadastrar cliente</a></li>
-                            <li><a href="#">Lista de clientes</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="venda">
-                        <h1>Venda</h1>
-                        <ul>
-                            <li><a href="#">Cadastrar venda</a></li>
-                            <li><a href="#">Lista de vendas</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
     </section>
 </body>
+
 </html>

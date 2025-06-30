@@ -168,6 +168,18 @@ form input[type="submit"]:hover {
     font-weight: 800;
 }
 
+form .bnt{
+    display: flex;
+    justify-content: space-between;
+}
+
+form .bnt a{
+    box-shadow: inset 5px 5px 8px #7288ff, inset -5px -5px 8px #cbd6ff;
+    background-color: #2a3a99;
+    color: #f0f4ff;
+    font-weight: 800;
+}
+
 @media (max-width: 768px) {
     .nav-links {
         flex-direction: column;

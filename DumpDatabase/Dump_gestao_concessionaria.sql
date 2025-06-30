@@ -115,7 +115,7 @@ CREATE TABLE `venda` (
   KEY `id_veiculo` (`id_veiculo`),
   CONSTRAINT `venda_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`),
   CONSTRAINT `venda_ibfk_2` FOREIGN KEY (`id_veiculo`) REFERENCES `veiculo` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

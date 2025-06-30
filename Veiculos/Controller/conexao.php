@@ -3,7 +3,7 @@
 
     $host = "localhost";
     $user  = "root";
-    $pass = "";
+    $pass = "123";
     $dbname = "gestao_concessionaria";
     $port = 3306;
 

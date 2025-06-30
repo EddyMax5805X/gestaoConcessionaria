@@ -1,6 +1,6 @@
 <?php 
-    include_once("../Controller/controllerVendas.php");
+    include_once("../Controller/ControllerVendas.php");
 
     $code = $_GET['id'];
-    removeVeiculo($code);
+    removerVendas($code);
 ?>

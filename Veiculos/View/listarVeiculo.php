@@ -34,7 +34,6 @@ $veiculos = listOfVeiculos();
                 <ul class="nav-links">
                     <li><a href="../../Home/home.php">Início</a></li>
                     <li><a href="../View/cadastroVeiculo.php">Cadastrar Veículo</a></li>
-                    <!-- Adicione ou remova <li> conforme necessário -->
                 </ul>
             </nav>
         </header>
