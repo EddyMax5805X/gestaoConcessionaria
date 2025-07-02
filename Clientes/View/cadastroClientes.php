@@ -43,9 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="fa-solid fa-circle-user"></i>
         </div>
     <div class="container">
-
+        <div class="links">
+            <p><a href="../../Home/home.php">Volta ao inicio</a></p>
+            <p><a href="verClientes.php">Listar Clientes -></a></p>
+        </div>
+        <h1>Adicionar Cliente</h1>
         <form action="" method="post">
-            <h1>Adicionar Cliente</h1>
+           
 
             <div>
                 <label for="nome">Nome</label>
@@ -68,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="bnt">
-            <input type="submit" value="Adicionar">
-            <a href="../View/verClientes.php">Voltar</a>
+                <input class="buttons clean" type="reset" value="Limpar">
+                <input class="buttons submit" type="submit" value="Adicionar">
             </div>
         </form>
     </div>

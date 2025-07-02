@@ -6,11 +6,9 @@ function loginMethod() {
     if (loginEmail.checked) {
         uname.hidden = true;
         email.hidden = false;
-        email.focus();
     } else {
         uname.hidden = false;
         email.hidden = true;
-        uname.focus();
     }
 }
 function verifyData() {

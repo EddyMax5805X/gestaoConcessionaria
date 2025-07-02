@@ -14,8 +14,8 @@
                 return $usuario = new User(null, $nome, $sobreNome, null, $emaill, null);
             }
         } else {
-            echo "<script>alert('Usuário ou senha incorretos!');</script>";
-            include "../View/login.php";
+            echo "<script>alert('Usuário ou senha incorretos!');
+            window.location.href = '../../index.php';</script>";
         }
     }
 

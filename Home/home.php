@@ -4,8 +4,18 @@
 
     $nome =  $_SESSION['nome'];
     $sobrenome = $_SESSION['sobrenome'];
-    $email = $_SESSION['email']
+    $email = $_SESSION['email'];
 
+    $cookie_name = "page_visit_count";
+
+    if(isset($_COOKIE[$cookie_name])){
+        $visit_count = intval($_COOKIE[$cookie_name]) + 1;
+    } else {
+        $visit_count = 1;
+    }
+
+    setcookie($cookie_name, $visit_count);
+    echo "<script>console.log('Você visitou este menu $visit_count vezes.');</script>";
 ?>
 
 <!DOCTYPE html>
@@ -121,12 +131,16 @@
         .perfil span {
             font-weight: bolder;
         }
+        #mySpan {
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
     </style>
 </head>
 
 <body>
     <div class="perfil">
-        <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
+        <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?><br><span id="mySpan"><?php echo "Você logou: $visit_count vezes" ?></span></p>
         <i class="fa-solid fa-circle-user"></i>
     </div>
     <div class="container">

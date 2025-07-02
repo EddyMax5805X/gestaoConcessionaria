@@ -23,7 +23,7 @@ body {
     width: 100%;
     max-width: 500px;
     margin: 10px;
-    padding: 15px 20px;
+    padding: 40px 30px;
     background: #d5dcff;
     border-radius: 30px;
     box-shadow: 20px 20px 60px #aab8ff, -20px -20px 60px #ffffff;
@@ -77,12 +77,9 @@ header {
 
 
 form {
-    background: #d5dcff;
     border-radius: 30px;
-    padding: 50px 40px;
     width: 100%;
     max-width: 550px;
-    box-shadow: 20px 20px 60px #aab8ff, -20px -20px 60px #ffffff;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -147,7 +144,7 @@ form input:not(:placeholder-shown) + label {
     box-shadow: 2px 2px 5px #7288ff, -2px -2px 5px #e1e7ff; 
 }
 
-form input[type="submit"] {
+/*form input[type="submit"] {
     padding: 16px 0;
     font-weight: 700;
     font-size: 1rem;
@@ -159,20 +156,40 @@ form input[type="submit"] {
     cursor: pointer;
     transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     user-select: none;
-}
+}*/
 
-form input[type="submit"]:hover {
+/*form input[type="submit"]:hover {
+    box-shadow: inset 5px 5px 8px #7288ff, inset -5px -5px 8px #cbd6ff;
+    background-color: #2a3a99;
+    color: #f0f4ff;
+    font-weight: 800;
+}*/
+
+form .bnt{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+.buttons {
+    padding: 16px 0;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2a3a99;
+    background: #d5dcff;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 6px 6px 10px #a0afff, -6px -6px 10px #e2e7ff;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+}
+.buttons:hover {
     box-shadow: inset 5px 5px 8px #7288ff, inset -5px -5px 8px #cbd6ff;
     background-color: #2a3a99;
     color: #f0f4ff;
     font-weight: 800;
 }
-
-form .bnt{
-    display: flex;
-    justify-content: space-between;
-}
-
 form .bnt a{
     box-shadow: inset 5px 5px 8px #7288ff, inset -5px -5px 8px #cbd6ff;
     background-color: #2a3a99;
@@ -223,4 +240,23 @@ form .bnt a{
 
 .perfil span{
     font-weight: bolder;
+}
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.links a {
+    color: #2a3a99;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.links a:hover {
+    color: #5671f5;
+    text-decoration: underline;
 }
