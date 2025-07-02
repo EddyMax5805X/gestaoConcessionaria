@@ -4,11 +4,8 @@
 
     $nome =  $_SESSION['nome'];
     $sobrenome = $_SESSION['sobrenome'];
-    $email = $_SESSION['email']
+    $email = $_SESSION['email'];
 
-?>
-
-<?php 
     include_once("../Controller/controllerVeiculo.php");
     $id = $_GET['id'];
     $veiculo = searchVeiculo($id);

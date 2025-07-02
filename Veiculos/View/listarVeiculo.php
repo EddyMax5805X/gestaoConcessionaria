@@ -61,7 +61,7 @@ $veiculos = listOfVeiculos();
                                 <td data-label='Preço'>MZN " . number_format($carro->getPreco(), 2, '.', ',') . "</td>
                                 <td data-label='Status'>{$carro->getStatus()}</td>
                                 <td data-label='Descrição'>{$carro->getDescricao()}</td>
-                                <td data-label='Ações'><a href='../View/updateVeiculo.php?id={$carro->getID()}'>Modificar</a> &nbsp;&nbsp; <a href='../Controller/removeVeiculo.php?id={$carro->getID()}'>Remover</a></td>
+                                <td data-label='Ações'><a href='../View/updateVeiculo.php?id={$carro->getID()}'>Modificar</a> &nbsp;&nbsp; <a href='../View/visualizarVeiculo.php?id={$carro->getID()}'>Visualizar</a></td>
                             </tr>
                         ";
                 }
