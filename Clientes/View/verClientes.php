@@ -5,6 +5,7 @@
     $nome =  $_SESSION['nome'];
     $sobrenome = $_SESSION['sobrenome'];
     $email = $_SESSION['email'];
+    $perfil = $_SESSION['perfil'];
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $idCliente = $_GET["id"];
         removerCliente($idCliente);
     } else {
+       
     }
 }
 ?>
@@ -32,16 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 
 <body>
-
     <div class="container">
-            <div class="perfil">
-            <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
+        <div class="perfil">
+            <p><span><?php echo $nome." ".$sobrenome;?></br>
+            <?php echo $email;?></span></br>
+            <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
             <i class="fa-solid fa-circle-user"></i>
         </div>
         <header>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="../../Home/home.php">Início</a></li>
+                    <li><a href="../../Home/home2.php">Início</a></li>
                     <li><a href="../View/cadastroClientes.php">Cadastrar Cliente</a></li>
                 </ul>
             </nav>

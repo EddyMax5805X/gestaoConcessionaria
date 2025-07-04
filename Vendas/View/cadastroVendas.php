@@ -4,6 +4,7 @@
     $nome =  $_SESSION['nome'];
     $sobrenome = $_SESSION['sobrenome'];
     $email = $_SESSION['email'];
+    $perfil = $_SESSION['perfil'];
 
 
 
@@ -40,7 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
     <div class="perfil">
-        <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
+        <p><span><?php echo $nome." ".$sobrenome;?></br>
+        <?php echo $email;?></span></br>
+        <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
         <i class="fa-solid fa-circle-user"></i>
     </div>
 

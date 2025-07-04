@@ -4,6 +4,7 @@ session_start();
 $nome = $_SESSION['nome'];
 $sobrenome = $_SESSION['sobrenome'];
 $email = $_SESSION['email'];
+$perfil = $_SESSION['perfil'];
 
 $id = $_GET['id'];
 
@@ -23,18 +24,17 @@ if (!$veiculo) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="../style/visualizar.css" />
 </head>
-<body>
+<body data-perfil="<?php echo $perfil; ?>">
     <div class="perfil">
-            <p>
-                <span><?php echo $nome . " " . $sobrenome; ?></span><br />
-                <?php echo $email; ?>
-            </p>
-            <i class="fa-solid fa-circle-user"></i>
-        </div>
+        <p><span><?php echo $nome." ".$sobrenome;?></br>
+        <?php echo $email;?></span></br>
+        <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
+        <i class="fa-solid fa-circle-user"></i>
+    </div>
         <header>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="../../Home/home.php">Início</a></li>
+                    <li><a href="../../Home/home2.php">Início</a></li>
                     <li><a href="../View/listarVeiculo.php">Lista de Veículos</a></li>
                     <li><a href="../View/cadastroVeiculo.php">Cadastrar Veículo</a></li>
                 </ul>
@@ -86,5 +86,6 @@ if (!$veiculo) {
             </div>
         </div>
     </div>
+    <script src="../js/scriptVisualizar.js"></script>
 </body>
 </html>

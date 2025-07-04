@@ -6,14 +6,16 @@
         private $username;
         private $email;
         private $password;
+        private $perfil;
 
-        public function __construct($id, $name, $surname, $username, $email, $password) {
+        public function __construct($id, $name, $surname, $username, $email, $password, $perfil) {
             $this->id = $id;
             $this->name = $name;
             $this->surname = $surname;
             $this->username = $username;
             $this->email = $email;
             $this->password = password_hash($password, PASSWORD_DEFAULT);
+            $this->perfil = $perfil;
         }
         
         public function getId() {
@@ -34,6 +36,9 @@
         public function getPassword() {
             return $this->password;
         }
+        public function getPerfil(){
+            return $this->perfil;
+        }
         public function setName($name) {
             $this->name = $name;
         }
@@ -48,6 +53,10 @@
         }
         public function setPassword($password) {
             $this->password = password_hash($password, PASSWORD_DEFAULT);
+        }
+
+        public function setPerfil($perfil){
+            $this->perfil = $perfil;
         }
     }
 ?>

@@ -4,6 +4,7 @@ session_start();
 $nome = $_SESSION['nome'];
 $sobrenome = $_SESSION['sobrenome'];
 $email = $_SESSION['email'];
+$perfil = $_SESSION['perfil'];
 
 include_once("../Controller/ControllerVendas.php");
 $vendas = listOfVendas();
@@ -21,15 +22,17 @@ $vendas = listOfVendas();
 
 <body>
     <div class="container">
-        <div class="perfil">
-            <p><span><?php echo $nome . " " . $sobrenome; ?></span><br><?php echo $email; ?></p>
-            <i class="fa-solid fa-circle-user"></i>
-        </div>
+            <div class="perfil">
+                <p><span><?php echo $nome." ".$sobrenome;?></br>
+                <?php echo $email;?></span></br>
+                <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
 
         <header>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="../../Home/home.php">Início</a></li>
+                    <li><a href="../../Home/home2.php">Início</a></li>
                     <li><a href="../View/cadastroVendas.php">Cadastrar Venda</a></li>
                 </ul>
             </nav>

@@ -210,3 +210,8 @@ h1 {
         justify-content: center;
     }
 }
+
+body[data-perfil="cliente"] .modify-btn,
+body[data-perfil="cliente"] .remove-btn {
+    display: none !important;
+}

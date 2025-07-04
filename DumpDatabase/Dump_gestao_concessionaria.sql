@@ -47,28 +47,55 @@ CREATE TABLE `cliente` (
 --
 
 DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `user` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(90) NOT NULL,
-  `snome` varchar(90) DEFAULT NULL,
-  `unome` varchar(90) NOT NULL,
-  `email` varchar(90) NOT NULL,
-  `senha` varchar(50) NOT NULL,
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(90) NOT NULL,
+  `snome` VARCHAR(90) DEFAULT NULL,
+  `unome` VARCHAR(90) NOT NULL,
+  `email` VARCHAR(90) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  `perfil` ENUM('admin', 'cliente') NOT NULL DEFAULT 'cliente',
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `unome` (`unome`)
+  UNIQUE KEY `unome` (`unome`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `user` (`nome`, `snome`, `unome`, `email`, `senha`, `perfil`)
+VALUES ('Administrador', ' ', 'admin', 'admin@gmail.com',
+'$2y$10$k8G.b756jUFaZJA61mj19.yw/mGAZnSrzyZoJbTGKSBf3IP/M3hlS', 'admin');
+
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Ednilson','Paulo','EddyMax5805X','eddy@example.com','$2y$10$V5o3s4tmC0Rz0VZNNwqlxOayuF1n.Hjslzy9/PSq7HxrA2/bLo4Vm'),
+(2,'Administrador','ad','admin','admin@gmail.com','$2y$10$k8G.b756jUFaZJA61mj19.yw/mGAZnSrzyZoJbTGKSBf3IP/M3hlS'),
+(3, 'Naran', 'Pressotamo', 'Nato', 'naranpressotamo@gmail.com', '$2y$10$BWmZ4TvhvF2R2NL30H.8KOrK5yV9XnMv0srUICZ2bCRCkNoX8MVrW');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */
+
+
+ALTER TABLE `user`
+ADD COLUMN `perfil` ENUM('admin', 'cliente') NOT NULL DEFAULT 'cliente';
+
+-- 1. Alterar tamanho da coluna senha para varchar(255)
+ALTER TABLE `user`
+MODIFY COLUMN `senha` VARCHAR(255) NOT NULL;
+
+-- 2. Corrigir o ENUM do campo perfil para incluir 'admin' ao invés de 'adimin'
+ALTER TABLE `user`
+MODIFY COLUMN `perfil` ENUM('admin', 'cliente') NOT NULL DEFAULT 'cliente';
+
+-- 3. Adicionar índice único na coluna email para evitar duplicidade
+ALTER TABLE `user`
+ADD UNIQUE KEY `email` (`email`);
+
+
+select * from `user`;
+delete from `user` where id = '13';
+
 
 --
 -- Dumping data for table `user`
 --
-
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Ednilson','Paulo','EddyMax5805X','eddy@example.com','asd123'),(2,'Administrador','ad','admin','admin@gmail.com','123'), (3, 'Naran', 'Pressotamo', 'Nato', 'naranpressotamo@gmail.com', 'senha123');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */
-
 --
 -- Table structure for table `veiculo`
 --

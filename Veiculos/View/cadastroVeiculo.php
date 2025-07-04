@@ -4,7 +4,8 @@
 
     $nome =  $_SESSION['nome'];
     $sobrenome = $_SESSION['sobrenome'];
-    $email = $_SESSION['email']
+    $email = $_SESSION['email'];
+    $perfil = $_SESSION['perfil'];
 
 ?>
 
@@ -18,10 +19,12 @@
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-        <div class="perfil">
-            <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
-            <i class="fa-solid fa-circle-user"></i>
-        </div>
+    <div class="perfil">
+        <p><span><?php echo $nome." ".$sobrenome;?></br>
+        <?php echo $email;?></span></br>
+        <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
+        <i class="fa-solid fa-circle-user"></i>
+    </div>
     <div class="container">
         <div class="links">
             <p><a href="../../Home/home.php">Volta ao inicio</a></p>

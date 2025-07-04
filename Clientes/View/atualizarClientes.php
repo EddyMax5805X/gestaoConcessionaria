@@ -5,6 +5,7 @@
     $nomeS =  $_SESSION['nome'];
     $sobrenomeS = $_SESSION['sobrenome'];
     $emailS = $_SESSION['email'];
+    $perfil = $_SESSION['perfil'];
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -66,10 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 
 <body>
-      <div class="perfil">
-            <p><span><?php echo $nomeS." ".$sobrenomeS;?></span></br><?php echo $emailS;?></p>
-            <i class="fa-solid fa-circle-user"></i>
-        </div>
+    <div class="perfil">
+        <p><span><?php echo $nomeS." ".$sobrenomeS;?></br>
+        <?php echo $emailS;?></span></br>
+        <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
+        <i class="fa-solid fa-circle-user"></i>
+    </div>
     <div class="container">
         <header>
             <nav>

@@ -278,7 +278,6 @@ tbody tr:nth-child(5) { animation-delay: 0.5s; }
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 850px;
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
@@ -289,6 +288,7 @@ tbody tr:nth-child(5) { animation-delay: 0.5s; }
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
+    gap: 30px;
 }
 
 .perfil i{

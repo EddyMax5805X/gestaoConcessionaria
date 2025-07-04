@@ -4,7 +4,8 @@
 
     $nome =  $_SESSION['nome'];
     $sobrenome = $_SESSION['sobrenome'];
-    $email = $_SESSION['email']
+    $email = $_SESSION['email'];
+    $perfil = $_SESSION['perfil'];
 
 ?>
 
@@ -23,16 +24,18 @@ $veiculos = listOfVeiculos();
     <title>Lista de Veiculos</title>
 </head>
 
-<body>
+<body data-perfil="<?php echo $perfil; ?>">
     <div class="container">
             <div class="perfil">
-                <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
+                <p><span><?php echo $nome." ".$sobrenome;?></br>
+                <?php echo $email;?></span></br>
+                <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
                 <i class="fa-solid fa-circle-user"></i>
             </div>
         <header>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="../../Home/home.php">Início</a></li>
+                    <li><a href="../../Home/home2.php">Início</a></li>
                     <li><a href="../View/cadastroVeiculo.php">Cadastrar Veículo</a></li>
                 </ul>
             </nav>
@@ -61,7 +64,8 @@ $veiculos = listOfVeiculos();
                                 <td data-label='Preço'>MZN " . number_format($carro->getPreco(), 2, '.', ',') . "</td>
                                 <td data-label='Status'>{$carro->getStatus()}</td>
                                 <td data-label='Descrição'>{$carro->getDescricao()}</td>
-                                <td data-label='Ações'><a href='../View/updateVeiculo.php?id={$carro->getID()}'>Modificar</a> &nbsp;&nbsp; <a href='../View/visualizarVeiculo.php?id={$carro->getID()}'>Visualizar</a></td>
+                                <td data-label='Ações'><a href='../View/updateVeiculo.php?id={$carro->getID()}' class='btn-atualizar'>Modificar</a>
+                                 &nbsp;&nbsp; <a href='../View/visualizarVeiculo.php?id={$carro->getID()}'>Visualizar</a></td>
                             </tr>
                         ";
                 }
@@ -69,6 +73,6 @@ $veiculos = listOfVeiculos();
             </tbody>
         </table>
     </div>
+    <script src="../js/script.js"></script>
 </body>
-
 </html>

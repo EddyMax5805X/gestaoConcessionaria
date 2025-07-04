@@ -1,17 +1,19 @@
-<?php 
+<?php
 
-    session_start();
+session_start();
 
-    $nome =  $_SESSION['nome'];
-    $sobrenome = $_SESSION['sobrenome'];
-    $email = $_SESSION['email'];
+$nome =  $_SESSION['nome'];
+$sobrenome = $_SESSION['sobrenome'];
+$email = $_SESSION['email'];
+$perfil = $_SESSION['perfil'];
 
-    include_once("../Controller/ControllerVendas.php");
-    $id = $_GET['id'];
-    $venda = searchVendas($id);
+include_once("../Controller/ControllerVendas.php");
+$id = $_GET['id'];
+$venda = searchVendas($id);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,29 +21,33 @@
     <link rel="stylesheet" href="../style/style.css">
     <title>Formulário de Atualização de Vendas</title>
 </head>
+
 <body>
 
     <div class="perfil">
-        <p><span><?php echo $nome." ".$sobrenome;?></span></br><?php echo $email;?></p>
+        <p><span><?php echo $nome . " " . $sobrenome; ?></br>
+                <?php echo $email; ?></span></br>
+            <span id="perfil"><strong>(<?php echo $perfil; ?>)</strong></span>
+        </p>
         <i class="fa-solid fa-circle-user"></i>
     </div>
 
     <div class="container">
-        
+
         <div class="links">
             <p><a href="../Home/home.php">Voltar ao Início</a></p>
             <p><a href="../View/listarVendas.php">Listar Vendas</a></p>
         </div>
-    
+
         <h1>Formulário de Atualização <br> de Vendas</h1>
-        
+
         <form action="../Controller/actualizarVendas.php" method="post">
 
             <div class="inputs code">
                 <label for="id">Código da Venda</label>
                 <input type="number" name="id" id="id" placeholder="Digite o ID da venda" value="<?php echo $venda->getId(); ?>" readonly>
             </div>
-            
+
             <div class="id_cliente">
                 <label for="id_cliente">ID do Cliente</label>
                 <input type="number" name="id_cliente" id="id_cliente" required placeholder="Digite o ID do Cliente" value="<?php echo $venda->getIdCliente(); ?>" readonly>
@@ -63,8 +69,9 @@
             </div>
 
             <button type="submit" name="submit" class="buttons">Atualizar</button>
-            
+
         </form>
     </div>
 </body>
+
 </html>
