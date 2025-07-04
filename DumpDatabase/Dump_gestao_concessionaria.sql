@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: gestao_concessionaria
 -- ------------------------------------------------------
-
+DROP DATABASE IF EXISTS gestao_concessionaria;
 CREATE DATABASE  IF NOT EXISTS gestao_concessionaria
 DEFAULT CHARACTER SET = 'utf8'
 DEFAULT COLLATE = 'utf8_general_ci';

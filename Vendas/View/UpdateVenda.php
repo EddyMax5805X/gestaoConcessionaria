@@ -35,7 +35,7 @@ $venda = searchVendas($id);
     <div class="container">
 
         <div class="links">
-            <p><a href="../Home/home.php">Voltar ao Início</a></p>
+            <p><a href="../../Home/home2.php">Voltar ao Início</a></p>
             <p><a href="../View/listarVendas.php">Listar Vendas</a></p>
         </div>
 

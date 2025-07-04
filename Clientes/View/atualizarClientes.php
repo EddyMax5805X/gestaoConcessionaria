@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 <input type="text" name="endereco" id="endereco" value="<?php echo $endereco; ?>">
             </div>
 
-            <input type="submit" value="Atualizar">
+            <input class="buttons" type="submit" value="Atualizar">
         </form>
     </div>
 </body>

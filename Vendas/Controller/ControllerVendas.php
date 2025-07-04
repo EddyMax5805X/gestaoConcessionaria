@@ -26,7 +26,7 @@ function listOfVendas() {
     global $conexao;
     $vendas = array();
 
-    $sql = "SELECT * FROM venda";
+    $sql = "SELECT v.*, c.nome, ve.marca, ve.modelo from venda v join cliente c on v.id_cliente = c.id join veiculo ve on v.id_veiculo = ve.id;";
     $result = mysqli_query($conexao, $sql);
 
     if ($result) {
@@ -35,6 +35,9 @@ function listOfVendas() {
                 $rs['id'],
                 $rs['id_cliente'],
                 $rs['id_veiculo'],
+                $rs['nome'],
+                $rs['marca'],
+                $rs['modelo'],
                 $rs['data'],
                 $rs['valor_pago']
             );
@@ -55,10 +58,11 @@ function searchVendas($id) {
         $rs = mysqli_fetch_assoc($result);
         return new Venda(
             $rs['id'],
-            $rs['id_cliente'],
-            $rs['id_veiculo'],
-            $rs['data'],
-            $rs['valor_pago']
+                $rs['id_cliente'],
+                $rs['id_veiculo'],
+                null, null, null,
+                $rs['data'],
+                $rs['valor_pago']
         );
     }
     return null;

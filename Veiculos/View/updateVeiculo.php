@@ -29,7 +29,7 @@
     </div>
     <div class="container">
         <div class="links">
-            <p><a href="../home.php"><- Voltar ao Início</a></p>
+            <p><a href="../../home/home2.php"><- Voltar ao Início</a></p>
             <p><a href="../View/listarVeiculo.php">Listar Veículos -></a></p>
         </div>
     
@@ -67,7 +67,7 @@
                 <label for="ano">Ano de fabrico</label>
             </div>
             <div class="inputs preco">
-                <input type="number" name="preco" id="preco" maxlength="8" placeholder="Digite o preço do veículo" <?php echo "value={$veiculo->getPreco()}" ?> required>
+                <input type="number" name="preco" id="preco" minlength="1" maxlength="8" placeholder="Digite o preço do veículo" <?php echo "value={$veiculo->getPreco()}" ?> required>
                 <label for="preco">Preço</label>
             </div>
             <div class="radios status">

@@ -1,5 +1,5 @@
 <?php 
-    $conexao = new mysqli("localhost", "root", "123", "gestao_concessionaria", 3306);
+    $conexao = new mysqli("localhost", "root", "", "gestao_concessionaria", 3306);
     
     function verifyUser($username, $email, $password) {
         global $conexao;

@@ -66,17 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo "
                         <select name='perfil' id='perfil' required>
                             <option value='' disabled selected hidden>Selecione o perfil</option>
-                            <option value='cliente'>Cliente</option>
+                            <option value='usuario'>Cliente</option>
                             <option value='admin'>Administrador</option>
                         </select>
                         <label for='perfil'>Perfil</label>";
                     } else {
                         echo "
                         <select name='perfil' id='perfil' disabled>
-                            <option value='cliente' selected>Cliente</option>
+                            <option value='usuario' selected>Usuario</option>
                         </select>
                         <label for='perfil'>Perfil</label>
-                        <input type='hidden' name='perfil' value='cliente' />";
+                        <input type='hidden' name='perfil' value='usuario' />";
                     }
                 ?>
             </div>

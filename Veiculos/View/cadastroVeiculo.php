@@ -27,7 +27,7 @@
     </div>
     <div class="container">
         <div class="links">
-            <p><a href="../../Home/home.php">Volta ao inicio</a></p>
+            <p><a href="../../Home/home2.php">Volta ao inicio</a></p>
             <p><a href="../View/listarVeiculo.php">Listar Veículos -></a></p>
         </div>
     

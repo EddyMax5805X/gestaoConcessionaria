@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($id_cliente) || empty($id_veiculo) || empty($data) || empty($valor_pago)) {
         echo "<script>alert('Preencha todos os campos!');</script>";
     } else {
-        $venda = new Venda(null, $id_cliente, $id_veiculo, $data, $valor_pago);
+        $venda = new Venda(null, $id_cliente, $id_veiculo, null, null, null, $data, $valor_pago);
         addVenda($venda);
     }
 }
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <div class="container">
         <div class="links">
-            <a href="../../Home/home.php">Voltar ao Início</a>
+            <a href="../../Home/home2.php">Voltar ao Início</a>
             <a href="../View/listarVendas.php">Listar Vendas</a>
         </div>
 

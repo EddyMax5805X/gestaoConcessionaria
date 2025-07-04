@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const perfil = document.body.getAttribute("data-perfil");
 
-    if (perfil === "cliente") {
+    if (perfil === "usuario") {
         const btnModificar = document.querySelector(".modify-btn");
         if (btnModificar) btnModificar.style.display = "none";
 

@@ -55,8 +55,8 @@ $vendas = listOfVendas();
                 <?php foreach ($vendas as $venda): ?>
                     <tr>
                         <td data-label="ID"><?= $venda->getId(); ?></td>
-                        <td data-label="ID do Cliente"><?= $venda->getIdCliente(); ?></td>
-                        <td data-label="ID do Veículo"><?= $venda->getIdVeiculo(); ?></td>
+                        <td data-label="Cliente"><?php echo $venda->getIdCliente() . " - " . $venda->getCliente(); ?></td>
+                        <td data-label="Veículo"><?php echo $venda->getIdVeiculo() . " - " . $venda->getMarcaVeiculo() . " - " . $venda->getModeloVeiculo(); ?></td>
                         <td data-label="Data da Venda"><?= $venda->getData(); ?></td>
                         <td data-label="Valor Pago">MZN <?= number_format($venda->getValorPago(), 2, '.', ','); ?></td>
                         <td data-label="Operações">

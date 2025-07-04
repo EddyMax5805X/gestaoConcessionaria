@@ -10,7 +10,7 @@ if (isset($_POST["entrar"])) {
     if($usuario = verifyUser($unome, $email, $password)) {
 
         session_start();
-
+        
         $_SESSION['nome'] = $usuario->getName();
         $_SESSION['sobrenome'] = $usuario->getSurname();
         $_SESSION['email'] = $usuario->getEmail();
@@ -33,7 +33,7 @@ if (isset($_POST["entrar"])) {
         header("Location: ../../../Home/home2.php");
         exit();
     }
-    header("Location: index.php?erro=1");
+    header("Location: ../../../index.php");
     exit();
 }
 ?>

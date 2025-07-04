@@ -12,7 +12,7 @@
         if (empty($code) || empty($id_cliente) || empty($id_veiculo) || empty($data) || empty($valor_pago)) {
             echo "<script>alert('Por favor, preencha todos os campos!')</script>";
         } else {
-            $venda = new Venda($code, $id_cliente, $id_veiculo, $data, $valor_pago);
+            $venda = new Venda($code, $id_cliente, $id_veiculo, null, null, null, $data, $valor_pago);
             atualizarVenda($venda);
         }
     }else{
