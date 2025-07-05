@@ -67,20 +67,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 
 <body>
-    <div class="perfil">
-        <p><span><?php echo $nomeS." ".$sobrenomeS;?></br>
-        <?php echo $emailS;?></span></br>
-        <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
-        <i class="fa-solid fa-circle-user"></i>
+    <div class="video">
+        <video src="../../Home/homeVid02.mp4" autoplay muted loop></video>
     </div>
+    <header>
+        <nav>
+            <a id="linkHome" href="../../Home/homeVersion3.php"><i class="fa-solid fa-house"></i></a>
+            <ul>
+                <li class="a"><a href="verClientes.php">Listar Clientes</a></li>
+                <li class="a"><a href="../../Veiculos/View/listarVeiculo.php">Veiculos</a></li>
+                <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
+            </ul>
+            <div class="perfil">
+                <p><span><?php echo $nomeS." ".$sobrenomeS . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
+                        <?php echo $emailS;?></span></br>
+                </p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-        <header>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../View/verClientes.php">Voltar</a></li>
-                </ul>
-            </nav>
-        </header>
 
         <form method="post">
             <h1>Atualizar Cliente</h1>

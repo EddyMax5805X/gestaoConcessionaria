@@ -30,10 +30,11 @@ if (isset($_POST["entrar"])) {
             "/"
         );
         
-        header("Location: ../../../Home/home2.php");
+        header("Location: ../../../Home/homeVersion3.php");
         exit();
     }
-    header("Location: ../../../index.php");
+    echo "<script>alert('Usuário ou senha incorretos!');
+            window.location.href = '../../index.php';</script>";
     exit();
 }
 ?>

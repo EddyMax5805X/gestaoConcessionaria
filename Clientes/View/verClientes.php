@@ -34,21 +34,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 
 <body>
+    <div class="video">
+        <video src="../../Home/homeVid02.mp4" autoplay muted loop></video>
+    </div>
+    <header>
+        <nav>
+            <a id="linkHome" href="../../Home/homeVersion3.php"><i class="fa-solid fa-house"></i></a>
+            <ul>
+                <li class="a"><a href="cadastroClientes.php">Cadastrar Cliente</a></li>
+                <li class="a"><a href="../../Veiculos/View/listarVeiculo.php">Veiculos</a></li>
+                <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
+            </ul>
+            <div class="perfil">
+                <p><span><?php echo $nome." ".$sobrenome . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
+                        <?php echo $email;?></span></br>
+                </p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-        <div class="perfil">
-            <p><span><?php echo $nome." ".$sobrenome;?></br>
-            <?php echo $email;?></span></br>
-            <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
-            <i class="fa-solid fa-circle-user"></i>
-        </div>
-        <header>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../Home/home2.php">Início</a></li>
-                    <li><a href="../View/cadastroClientes.php">Cadastrar Cliente</a></li>
-                </ul>
-            </nav>
-        </header>
         <h1>Gestão de Clientes</h1>
         <table>
             <thead>

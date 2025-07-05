@@ -23,22 +23,26 @@ $venda = searchVendas($id);
 </head>
 
 <body>
-
-    <div class="perfil">
-        <p><span><?php echo $nome . " " . $sobrenome; ?></br>
-                <?php echo $email; ?></span></br>
-            <span id="perfil"><strong>(<?php echo $perfil; ?>)</strong></span>
-        </p>
-        <i class="fa-solid fa-circle-user"></i>
+    <div class="video">
+        <video src="../../Home/homeVid02.mp4" autoplay muted loop></video>
     </div>
-
+    <header>
+        <nav>
+            <a id="linkHome" href="../../Home/homeVersion3.php"><i class="fa-solid fa-house"></i></a>
+            <ul>
+                <li class="a"><a href="listarVendas.php">Listar Vendas</a></li>
+                <li class="a"><a href="../../Clientes/View/verClientes.php">Clientes</a></li>
+                <li class="a"><a href="../../Veiculos/View/listarVeiculo.php">Veiculos</a></li>
+            </ul>
+            <div class="perfil">
+                <p><span><?php echo $nome." ".$sobrenome . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
+                        <?php echo $email;?></span></br>
+                </p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-
-        <div class="links">
-            <p><a href="../../Home/home2.php">Voltar ao Início</a></p>
-            <p><a href="../View/listarVendas.php">Listar Vendas</a></p>
-        </div>
-
         <h1>Formulário de Atualização <br> de Vendas</h1>
 
         <form action="../Controller/actualizarVendas.php" method="post">

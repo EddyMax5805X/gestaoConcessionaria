@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    $nomeS =  $_SESSION['nome'];
+    $sobrenomeS = $_SESSION['sobrenome'];
+    $emailS = $_SESSION['email'];
+    $perfilS = $_SESSION['perfil'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     include("../Usuarios/login/Controller/user.php");
@@ -29,6 +34,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+    <div class="video">
+        <video src="../Home/homeVid02.mp4" autoplay muted loop></video>
+    </div>
+    <header>
+        <nav>
+            <a id="linkHome" href="../Home/homeVersion3.php"><i class="fa-solid fa-house"></i></a>
+            <ul>
+                <li class="a"><a href="../Veiculos/View/listarVeiculo.php">Veiculo</a></li>
+                <li class="a"><a href="../../Clientes/View/verClientes.php">Clientes</a></li>
+                <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
+            </ul>
+            <div class="perfil">
+                <p><span><?php echo $nomeS." ".$sobrenomeS . " - " ;?> <span id="perfil"><strong>(<?php echo $perfilS;?>)</strong></span></br>
+                        <?php echo $emailS;?></span></br>
+                </p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+        </nav>
+    </header>
     <div class="container">
         <h1>Adicionar Usuário</h1>
         <form action="" method="post">
@@ -59,9 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="input-group">
                 <?php
-                    session_start();
-                    $perfilS = $_SESSION['perfil'];
-
                     if ($perfilS === "admin") {
                         echo "
                         <select name='perfil' id='perfil' required>

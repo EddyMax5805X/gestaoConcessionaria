@@ -70,8 +70,8 @@ setcookie(
             </header>
             
             <div id="texto">
-                <h1>Encontre o carro dos seus sonhos com confiança e qualidade</h1>
-                <p>Seu próximo carro está aqui. Qualidade, confiança e o melhor negócio!</p>
+                <h1>Bem-vindo à sua área administrativa da concessionária!</h1>
+                <p>Explore nosso sistema para gerenciar clientes, veículos e vendas de forma eficiente.</p>
             </div>
             
             <div class="perfil">
