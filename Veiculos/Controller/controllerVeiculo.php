@@ -10,7 +10,14 @@
         $status = $veiculo->getStatus();
         $desc = $veiculo->getDescricao();
         $preco = $veiculo->getPreco();
-        $sql = "INSERT INTO veiculo (marca, modelo, ano, preco, status, descricao) VALUES ('$marca', '$modelo', $ano, $preco, '$status', '$desc')";
+        $chassi = $veiculo->getChassi();
+        $cor = $veiculo->getCor();
+        $cilindrada= $veiculo->getCilindrada();
+        $transmissao= $veiculo->getTransmissao();
+        $numeroChassi= $veiculo->getNumeroChassi();
+        $quilometragem= $veiculo->getQuilometragem();
+        $combustivel= $veiculo->getCombustivel();
+        $sql = "INSERT INTO veiculo (marca, modelo, ano, preco, status, descricao,preco,chassi,cor,cilindrada,transmissao, numeroChassi,quilometragem,combustivel) VALUES ('$marca', '$modelo', $ano, $preco, '$status', '$desc','$chassi','$cor','$cilindrada','$transmissao','$numeroChassi','$quilometragem','$combustivel')";
 
         $result = mysqli_query($conexao, $sql);
         if ($result) {
@@ -28,7 +35,7 @@
         $result = mysqli_query($conexao, $sql);
         if ($result) {
             while($rs = mysqli_fetch_assoc($result)) {
-                $carro = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'], $rs['preco'], $rs['status'], $rs['descricao']);
+                $carro = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'],$rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
                 array_push($veiculos, $carro);
             }
         }
@@ -39,7 +46,7 @@
         $sql = "SELECT * FROM veiculo WHERE id='$id'";
         $result = mysqli_query($conexao, $sql);
         $rs = mysqli_fetch_assoc($result);
-        $veiculo = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'], $rs['preco'], $rs['status'], $rs['descricao']);
+        $veiculo = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'],$rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
         return $veiculo;
     }
     function updateVeiculo($veiculo) {
@@ -51,7 +58,20 @@
         $preco = $veiculo->getPreco();
         $status = $veiculo->getStatus();
         $desc = $veiculo->getDescricao();
-        $sql = "UPDATE veiculo SET marca='$marca', modelo='$modelo', ano=$ano, preco=$preco, status='$status', descricao='$desc' WHERE id='$id'";
+        $preco = $veiculo->getPreco();
+        $chassi = $veiculo->getChassi();
+        $cor = $veiculo->getCor();
+        $cilindrada= $veiculo->getCilindrada();
+        $transmissao= $veiculo->getTransmissao();
+        $numeroChassi= $veiculo->getNumeroChassi();
+        $quilometragem= $veiculo->getQuilometragem();
+        $combustivel= $veiculo->getCombustivel();
+
+        $sql = "UPDATE veiculo SET marca='$marca', modelo='$modelo',
+        ano=$ano, preco=$preco, status='$status', 
+        descricao='$desc',chassi='$chassi', cor='$cor',cilindrada='$cilindrada',
+         transmissao='$transmissao',numeroChassi='$numeroChassi',quilometragem='$quilometragem',combustivel='$combustivel'  WHERE id='$id'";
+        
         $result = mysqli_query($conexao, $sql);
         if ($result) {
             echo "<script>
