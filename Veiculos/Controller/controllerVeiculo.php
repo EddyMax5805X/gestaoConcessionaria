@@ -35,7 +35,7 @@
         $result = mysqli_query($conexao, $sql);
         if ($result) {
             while($rs = mysqli_fetch_assoc($result)) {
-                $carro = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'],$rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
+                $carro = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'], $rs['descricao'], $rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
                 array_push($veiculos, $carro);
             }
         }
@@ -46,7 +46,7 @@
         $sql = "SELECT * FROM veiculo WHERE id='$id'";
         $result = mysqli_query($conexao, $sql);
         $rs = mysqli_fetch_assoc($result);
-        $veiculo = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'],$rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
+        $veiculo = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'], $rs['descricao'], $rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
         return $veiculo;
     }
     function updateVeiculo($veiculo) {
