@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: #e3e9ff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #d5dcff;
+    border-radius: 30px;
+    box-shadow: 18px 18px 40px #a0afff, -18px -18px 40px #ffffff;
+    color: #2a3a99;
+    overflow-x: auto;
+}
+
+/* Cabeçalho e navegação */
+header {
+    width: 100%;
+    background-color: #2a3a99;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: #f0f4ff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #5671f5;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(86, 113, 245, 0.3);
+}
+
+/* Título */
+h1 {
+    font-weight: 700;
+    color: #2a3a99;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Formulário de filtro */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+form label {
+    font-weight: 600;
+    color: #2a3a99;
+}
+
+form input, form select, form button {
+    padding: 10px 12px;
+    border: 1px solid #a0afff;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #2a3a99;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #445dde;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    min-width: 900px;
+}
+
+thead tr {
+    background: #2a3a99;
+    color: #fff;
+    border-radius: 20px;
+}
+
+thead th {
+    padding: 16px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+tbody tr {
+    background: #e1e8ff;
+    box-shadow: 6px 6px 12px #c4ccff, -6px -6px 12px #f1f4ff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+tbody td {
+    padding: 14px;
+    font-size: 0.95rem;
+    color: #2a3a99;
+    white-space: nowrap;
+}
+
+tbody td[data-label="Data/Hora"] {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+tbody tr:hover {
+    background-color: #5671f5;
+    color: #fff;
+}
+
+tbody tr:hover td {
+    color: #fff;
+}
+
+tbody td a {
+    color: #2a3a99;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+tbody tr:hover td a {
+    color: #cbd4ff;
+}
+
+/* Perfil */
+.perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.perfil i {
+    font-size: 2.8rem;
+    color: #2a3a99;
+}
+
+.perfil span {
+    font-weight: bold;
+}
+
+/* Scroll para telas menores */
+.container::-webkit-scrollbar {
+    height: 9px;
+}
+.container::-webkit-scrollbar-track {
+    background: #d5dcff;
+    border-radius: 20px;
+}
+.container::-webkit-scrollbar-thumb {
+    background: #5671f5;
+    border-radius: 20px;
+}
+
+/* Animação */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    table {
+        min-width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    .perfil {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 25px;
+        padding: 15px;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #344070;
+        flex-basis: 50%;
+    }
+}

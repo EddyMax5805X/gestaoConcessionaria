@@ -1,9 +1,18 @@
 <?php 
-    session_start();
+session_start();
 
-    $_SESSION = array();
+if (isset($_SESSION['nome'])) {
+    $nome = $_SESSION['nome'];
+    $ultimo_logout = setcookie(
+        "ultimo_logout_$nome",
+        date('d/m/Y H:i:s'),
+        time() + (30 * 24 * 60 * 60), // 30 dias
+        "/"
+    );
+}
 
-    session_destroy();
+$_SESSION = array();
+session_destroy();
 ?>
 
 

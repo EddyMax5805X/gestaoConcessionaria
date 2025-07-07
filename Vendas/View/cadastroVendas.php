@@ -1,16 +1,14 @@
 <?php
-    session_start();
+session_start();
 
-    $nome =  $_SESSION['nome'];
-    $sobrenome = $_SESSION['sobrenome'];
-    $email = $_SESSION['email'];
-    $perfil = $_SESSION['perfil'];
+$nome =  $_SESSION['nome'];
+$sobrenome = $_SESSION['sobrenome'];
+$email = $_SESSION['email'];
+$perfil = $_SESSION['perfil'];
 
-
-
-include_once("../Controller/Vendas.php");
-include_once("../Controller/Conexao.php");
-include_once("../Controller/ControllerVendas.php");
+include_once(__DIR__ ."/../Controller/Vendas.php");
+include_once(__DIR__ ."/../../conexao.php");
+include_once(__DIR__ ."/../Controller/ControllerVendas.php");
 
 $clientes = $conexao->query("SELECT id, nome FROM cliente");
 $veiculos = $conexao->query("SELECT ID, marca, modelo FROM veiculo WHERE status = 'Disponivel'");
@@ -24,23 +22,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($id_cliente) || empty($id_veiculo) || empty($data) || empty($valor_pago)) {
         echo "<script>alert('Preencha todos os campos!');</script>";
     } else {
+        $usuario = $_SESSION['nome'] . " " . $_SESSION['sobrenome'];
+        $perfil = $_SESSION['perfil'];
+        $acao = "Cadastro";
+        $tabela = "Vendas";
+        $idRegistro = null;
+        $valores_anteriores = "---";
+        $valores_novos = "id_cliente: $id_cliente, id_veiculo: $id_veiculo, data: $data, valor pago: $valor_pago";
+
+        $auditoria = new Auditoria(null, $usuario, $perfil, $acao, $tabela, $idRegistro, $valores_anteriores, $valores_novos, null);
         $venda = new Venda(null, $id_cliente, $id_veiculo, null, null, null, $data, $valor_pago);
-        addVenda($venda);
+        addVenda($venda, $auditoria);
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cadastrar Venda</title>
     <link rel="stylesheet" href="../style/style.css">
 </head>
+
 <body>
+<<<<<<< HEAD
     <div class="video">
         <video src="../../Home/homeVid02.mp4" autoplay muted loop></video>
+=======
+
+    <div class="perfil">
+        <p><span><?php echo $nome . " " . $sobrenome; ?></br>
+                <?php echo $email; ?></span></br>
+            <span id="perfil"><strong>(<?php echo $perfil; ?>)</strong></span>
+        </p>
+        <i class="fa-solid fa-circle-user"></i>
+>>>>>>> f0997e8 (Auditoria)
     </div>
     <header>
         <nav>
@@ -66,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <select name="id_cliente" id="id_cliente" required>
                 <option value="">Selecione o cliente</option>
                 <?php while ($c = $clientes->fetch_assoc()): ?>
-                    <option value="<?= $c['id'] ?>"><?= $c['id']." / ". $c['nome'] ?></option>
+                    <option value="<?= $c['id'] ?>"><?= $c['id'] . " / " . $c['nome'] ?></option>
                 <?php endwhile; ?>
             </select>
 
@@ -74,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <select name="id_veiculo" id="id_veiculo" required>
                 <option value="">Selecione o veículo</option>
                 <?php while ($v = $veiculos->fetch_assoc()): ?>
-                    <option value="<?= $v['ID'] ?>"><?= $v['ID']." / ". $v['marca'] . " " . $v['modelo'] ?></option>
+                    <option value="<?= $v['ID'] ?>"><?= $v['ID'] . " / " . $v['marca'] . " " . $v['modelo'] ?></option>
                 <?php endwhile; ?>
             </select>
 
@@ -88,4 +107,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
     </div>
 </body>
+
 </html>
