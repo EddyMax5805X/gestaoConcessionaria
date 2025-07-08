@@ -74,6 +74,10 @@ $ultimo_login = $_COOKIE["ultimo_logout_$nome"] ?? 'Primeiro acesso';
                     <a href="../Vendas/View/cadastroVendas.php"><i class="fa-solid fa-circle-plus"></i> Cadastrar Venda</a>
                     <a href="../Vendas/View/listarVendas.php"><i class="fa-solid fa-table-list"></i> Listar Vendas</a>
                 </div>
+                <a class="links link6" id="menuItem" href="../Auditoria/View/listaAuditoria.php" data-target='submenu4'>
+                    <i class="fa-solid fa-shopping-cart"></i> 
+                    <span class="links-text">Auditoria</span>
+                </a>
                 <a class="links link4" href="../Usuarios/cadastroUsuario.php">
                     <i class="fa-solid fa-user-plus"></i> 
                     <span class="links-text">Cadastrar User</span>
