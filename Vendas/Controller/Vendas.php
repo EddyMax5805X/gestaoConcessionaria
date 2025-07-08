@@ -1,8 +1,4 @@
-<?php 
-    include_once('../Controller/Vendas.php');
-    include_once('../Controller/Conexao.php');
-
-    
+<?php   
 class Venda {
     private $id;
     private $id_cliente;

@@ -1,8 +1,10 @@
 <?php 
 include_once('../Controller/Vendas.php');
-include_once('../Controller/Conexao.php');
+include_once(__DIR__ ."/../../conexao.php");
+include_once(__DIR__ ."/../../Auditoria/Controller/Auditoria.php");
+include_once(__DIR__ ."/../../Auditoria/Controller/metodos.php");
 
-function addVenda($venda) {
+function addVenda($venda, Auditoria $auditoria) {
     global $conexao;
 
     $id_cliente = $venda->getIdCliente();
@@ -15,6 +17,10 @@ function addVenda($venda) {
 
     $result = mysqli_query($conexao, $sql);
     if ($result) {
+        if ($auditoria !== null) {
+            $auditoria->setIDdoRegistro($conexao->insert_id);
+            adicionarAuditoria($auditoria);
+        }
         header("Location: ../View/listarVendas.php");
         exit();
     } else {
@@ -68,7 +74,7 @@ function searchVendas($id) {
     return null;
 }
 
-function atualizarVenda($venda) {
+function atualizarVenda($venda, Auditoria $auditoria) {
     global $conexao;
 
     $id = $venda->getId();
@@ -87,6 +93,10 @@ function atualizarVenda($venda) {
     $result = mysqli_query($conexao, $sql);
 
     if ($result) {
+        if ($auditoria !== null) {
+            $auditoria->setIDdoRegistro($id);
+            adicionarAuditoria($auditoria);
+        }
         echo "<script>
             alert('Venda atualizada com sucesso!');
             window.location.href = '../View/listarVendas.php';
@@ -100,7 +110,7 @@ function atualizarVenda($venda) {
 }
 
 
-function removerVendas($id) {
+function removerVendas($id, Auditoria $auditoria) {
     global $conexao;
 
     $id = mysqli_real_escape_string($conexao, $id);
@@ -108,6 +118,10 @@ function removerVendas($id) {
     $result = mysqli_query($conexao, $sql);
 
     if ($result) {
+        if ($auditoria !== null) {
+            $auditoria->setIDdoRegistro($id);
+            adicionarAuditoria($auditoria);
+        }
         echo "<script>alert('Venda removida com sucesso!');</script>";
         header("Location: ../View/listarVendas.php");
         exit();

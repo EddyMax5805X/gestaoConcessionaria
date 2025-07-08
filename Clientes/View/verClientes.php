@@ -2,20 +2,40 @@
 
     session_start();
 
-    $nome =  $_SESSION['nome'];
-    $sobrenome = $_SESSION['sobrenome'];
-    $email = $_SESSION['email'];
-    $perfil = $_SESSION['perfil'];
+    $nome_S =  $_SESSION['nome'];
+    $sobrenome_S = $_SESSION['sobrenome'];
+    $email_S = $_SESSION['email'];
+    $perfil_S = $_SESSION['perfil'];
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-    include("../Controller/conexao.php");
-    include("../Controller/metodos.php");
+    include_once("../../conexao.php");
+    include_once("../Controller/metodos.php");
+
+    $sql = "SELECT * FROM cliente;";
+    $resultado = $conexao->query($sql);
+
+    if ($resultado->num_rows > 0) {
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $email = $row['email'];
+            $telefone = $row['contacto'];
+            $endereco = $row['endereco'];
+        }
+    }
+
+    $usuario = $_SESSION['nome'] . " " . $_SESSION['sobrenome'];
+    $perfil = $_SESSION['perfil'];
+    $acao = "Remover";
+    $tabela = "cliente";
+    $idRegistro = null;
+    $valores_anteriores = "---";
+    $valores_novos = "nome: $usuario, email: $email, contacto: $telefone, endereco: $endereco";
 
     if (isset($_GET["id"])) {
         $idCliente = $_GET["id"];
-        removerCliente($idCliente);
+        $auditoria = new Auditoria($idCliente, $usuario, $perfil, $acao, $tabela, $idRegistro, $valores_anteriores, $valores_novos, null);
+        removerCliente($idCliente, $auditoria);
     } else {
        
     }
@@ -46,14 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
             </ul>
             <div class="perfil">
-                <p><span><?php echo $nome." ".$sobrenome . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
-                        <?php echo $email;?></span></br>
+                <p><span><?php echo $nome_S." ".$sobrenome_S . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
+                        <?php echo $email_S;?></span></br>
                 </p>
                 <i class="fa-solid fa-circle-user"></i>
             </div>
         </nav>
     </header>
-    <div class="container">
         <h1>Gestão de Clientes</h1>
         <table>
             <thead>
@@ -68,7 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             </thead>
             <tbody>
                 <?php
-                include("../Controller/conexao.php");
+
+                include_once("../../conexao.php");
 
                 $sql = "SELECT * FROM cliente;";
                 $resultado = $conexao->query($sql);

@@ -7,29 +7,11 @@
     $emailS = $_SESSION['email'];
     $perfil = $_SESSION['perfil'];
 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    include("../Controller/Cliente.php");
-    include("../Controller/Conexao.php");
-    include("../Controller/metodos.php");
-
-    $id = $_POST["id"];
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $telefone = $_POST["telefone"];
-    $endereco = $_POST["endereco"];
-
-    echo "$id";
-    $cliente = new Cliente($nome, $email, $telefone, $endereco);
-    $cliente->setId($id);
-
-    atualizarCliente($cliente);
-}
+    include_once("../Controller/Cliente.php");
+    include_once("../../conexao.php");
+    include_once("../Controller/metodos.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    include("../Controller/Cliente.php");
-    include("../Controller/Conexao.php");
-    include("../Controller/metodos.php");
 
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
@@ -39,11 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         if ($resultado && mysqli_num_rows($resultado) > 0) {
             $row = mysqli_fetch_assoc($resultado);
-            $id = $row["id"];
-            $nome = $row["nome"];
-            $email = $row["email"];
-            $telefone = $row["contacto"];
-            $endereco = $row["endereco"];
+            $id_Anterior = $row["id"];
+            $nome_Anterior = $row["nome"];
+            $email_Anterior = $row["email"];
+            $telefone_Anterior = $row["contacto"];
+            $endereco_Anterior = $row["endereco"];
         } else {
             echo "Cliente não encontrado.";
             exit();
@@ -88,32 +70,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     </header>
     <div class="container">
 
-        <form method="post">
+        <form method="post" action="../Controller/AtualizarCliente.php">
             <h1>Atualizar Cliente</h1>
 
             <div>
                 <label for="id">ID</label>
-                <input type="text" name="id" id="id" value="<?php echo $id; ?>" readonly>
+                <input type="text" name="id" id="id" value="<?php echo $id_Anterior; ?>" readonly>
             </div>
 
             <div>
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>">
+                <input type="text" name="nome" id="nome" value="<?php echo $nome_Anterior; ?>">
             </div>
 
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" value="<?php echo $email; ?>">
+                <input type="email" name="email" id="email" value="<?php echo $email_Anterior; ?>">
             </div>
 
             <div>
                 <label for="telefone">Contacto</label>
-                <input type="text" name="telefone" id="telefone" value="<?php echo $telefone; ?>">
+                <input type="text" name="telefone" id="telefone" value="<?php echo $telefone_Anterior; ?>">
             </div>
 
             <div>
                 <label for="endereco">Endereço</label>
-                <input type="text" name="endereco" id="endereco" value="<?php echo $endereco; ?>">
+                <input type="text" name="endereco" id="endereco" value="<?php echo $endereco_Anterior; ?>">
             </div>
 
             <input class="buttons" type="submit" value="Atualizar">

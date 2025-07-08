@@ -1,5 +1,8 @@
 <?php 
-    $conexao = new mysqli("localhost", "root", "", "gestao_concessionaria", 3306);
+    include_once(__DIR__ . '/../../../Auditoria/Controller/Auditoria.php');
+    include_once(__DIR__ . '/../../../Auditoria/Controller/metodos.php');
+    include_once(__DIR__ . '/../../../conexao.php');
+
     
     function verifyUser($username, $email, $password) {
         global $conexao;
@@ -26,7 +29,7 @@
         }
     }
 
-function adicionarUsuario($usuario) {
+function adicionarUsuario($usuario, Auditoria $auditoria) {
     global $conexao;
 
     $nome = $usuario->getName();
@@ -40,6 +43,11 @@ function adicionarUsuario($usuario) {
             VALUES ('$nome', '$sobrenome', '$username', '$email', '$senha', '$perfil')";
 
     $resultado = mysqli_query($conexao, $sql);
+
+    if($auditoria != null){
+        $auditoria->setIDDoRegistro($conexao->insert_id);
+        adicionarAuditoria($auditoria);
+    }
 
     if ($resultado) {
         header("Location: index.php");

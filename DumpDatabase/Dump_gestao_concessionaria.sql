@@ -155,3 +155,15 @@ CREATE TABLE `venda` (
 --
 -- Dumping routines for database 'gestao_concessionaria'
 --
+
+CREATE TABLE auditoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_do_usuario VARCHAR(50),
+    perfil_do_usuario varchar(50),
+    acao VARCHAR(20),
+    tabela_afetada VARCHAR(50),
+    ID_do_registro VARCHAR(50),
+    valores_anteriores TEXT,
+    valores_novos TEXT,
+    data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+);

@@ -1,5 +1,10 @@
 <?php
-function adicionarCliente($cliente) {
+    include_once("../../Auditoria/Controller/Auditoria.php");
+    include_once("../../Auditoria/Controller/metodos.php");
+    include_once("../../conexao.php");
+
+function adicionarCliente($cliente, $auditoria)
+{
     global $conexao;
 
     $nome = $conexao->real_escape_string($cliente->getNome());
@@ -7,15 +12,13 @@ function adicionarCliente($cliente) {
     $telefone = $conexao->real_escape_string($cliente->getTelefone());
     $endereco = $conexao->real_escape_string($cliente->getEndereco());
 
-    $sql = "INSERT INTO cliente (nome, email, contacto, endereco)
-            VALUES ('$nome', '$email', '$telefone', '$endereco')";
+    $sql = "INSERT INTO cliente (nome, email, contacto, endereco) VALUES ('$nome', '$email', '$telefone', '$endereco')";
 
-    $resultado = mysqli_query($conexao, $sql);
-    
-
-
-    if ($resultado) {
-        echo"<script>alert('Cliente adicionado com sucesso');</script>";
+    if (mysqli_query($conexao, $sql)) {
+        if ($auditoria !== null) {
+            $auditoria->setIDdoRegistro($conexao->insert_id);
+            adicionarAuditoria($auditoria);
+        }
         header("Location: ../View/verClientes.php");
         exit();
     } else {
@@ -23,7 +26,7 @@ function adicionarCliente($cliente) {
     }
 }
 
-function removerCliente($id) {
+function removerCliente($id, $auditoria) {
     global $conexao;
 
     $sql = "DELETE FROM cliente WHERE id = '$id'";
@@ -31,6 +34,10 @@ function removerCliente($id) {
         $resultado = mysqli_query($conexao, $sql);
 
         if ($resultado) {
+            if ($auditoria !== null) {
+                $auditoria->setIDdoRegistro($id);
+                adicionarAuditoria($auditoria);
+        }
             header("Location: ../View/verClientes.php");
             exit();
         } else {
@@ -42,7 +49,7 @@ function removerCliente($id) {
     
 }
 
-function atualizarCliente($cliente) {
+function atualizarCliente($cliente, $auditoria) {
     global $conexao;
 
     $id = $cliente->getId();
@@ -61,12 +68,20 @@ function atualizarCliente($cliente) {
         $resultado = mysqli_query($conexao, $sql);
 
         if ($resultado) {
+            if ($auditoria !== null) {
+                $auditoria->setIDdoRegistro($id);
+                adicionarAuditoria($auditoria);
+            }
+
+        if ($resultado) {
             header("Location: ../View/verClientes.php");
             exit();
         } else {
             echo "<p style='color: red;'>Erro ao atualizar cliente: " . $conexao->error . "</p>";
         }
-    } catch (Exception $th) {
+    }
+
+    }catch (Exception $th) {
         echo "<script> alert('ERRO! Não pode atualizar o cliente!')</script>";
     }
     

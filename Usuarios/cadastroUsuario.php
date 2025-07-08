@@ -1,13 +1,16 @@
 <?php
     session_start();
-    $nomeS =  $_SESSION['nome'];
-    $sobrenomeS = $_SESSION['sobrenome'];
-    $emailS = $_SESSION['email'];
-    $perfilS = $_SESSION['perfil'];
+
+    $nome_S =  $_SESSION['nome'];
+    $sobrenome_S = $_SESSION['sobrenome'];
+    $email_S = $_SESSION['email'];
+    $perfil_S = $_SESSION['perfil'];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     include("../Usuarios/login/Controller/user.php");
     include("../Usuarios/login/Controller/controllerUser.php");
+    include_once("../Auditoria/Controller/Auditoria.php");
 
     $nome = $_POST["nome"];
     $snome = $_POST["snome"];
@@ -16,10 +19,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST["senha"];
     $perfil = $_POST["perfil"];
 
+    $usuario = $_SESSION['nome'] . " " . $_SESSION['sobrenome'];
+    $perfil = $_SESSION['perfil'];
+    $acao = "Cadastro";
+    $tabela = "Usuario";
+    $idRegistro = null;
+    $valores_anteriores = "---";
+    $valores_novos = "Nome: $nome, Sobrenome $snome, Username email: $email, senha: ----, Novo perfil: $perfil";
+
+    $auditoria = new Auditoria(null, $usuario, $perfil, $acao, $tabela, $idRegistro, $valores_anteriores, $valores_novos, null);
     $usuario = new User(null, $nome, $snome, $username, $email, $senha, $perfil);
 
-
-    adicionarUsuario($usuario);
+    adicionarUsuario($usuario, $auditoria);
 }
 ?>
 <!DOCTYPE html>
@@ -46,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
             </ul>
             <div class="perfil">
-                <p><span><?php echo $nomeS." ".$sobrenomeS . " - " ;?> <span id="perfil"><strong>(<?php echo $perfilS;?>)</strong></span></br>
-                        <?php echo $emailS;?></span></br>
+                <p><span><?php echo $nome_S." ".$sobrenome_S . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil_S;?>)</strong></span></br>
+                        <?php echo $email_S;?></span></br>
                 </p>
                 <i class="fa-solid fa-circle-user"></i>
             </div>
@@ -83,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="input-group">
                 <?php
-                    if ($perfilS === "admin") {
+                    if ($perfil_S === "admin") {
                         echo "
                         <select name='perfil' id='perfil' required>
                             <option value='' disabled selected hidden>Selecione o perfil</option>
@@ -110,5 +121,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </body>
-
 </html>

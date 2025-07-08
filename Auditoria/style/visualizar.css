@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    width: 100%;
+    max-width: 50vw;
+    margin: 40px auto;
+    padding: 20px;
+    background: #d5dcff;
+    border-radius: 30px;
+    box-shadow: 18px 18px 40px #a0afff, -18px -18px 40px #ffffff;
+    color: #2a3a99;
+    overflow-x: auto;
+}
+
+.container {
+    max-width: 700px;
+    padding: 30px 40px 40px;
+    user-select: none;
+    width: 100%;
+}
+
+.perfil {
+    max-width: max-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.perfil p {
+    font-weight: 600;
+}
+
+.perfil span {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.perfil i {
+    font-size: 3rem;
+}
+
+header {
+    width: 100%;
+    background-color: #2a3a99;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: #f0f4ff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.nav-links li a:hover {
+    color: #ffffff;
+    background-color: #5671f5;
+    box-shadow: 0 4px 12px rgba(86, 113, 245, 0.3);
+    transform: translateY(-3px);
+}
+
+.nav-links li a:focus {
+    outline: none;
+    background-color: #4e63d0;
+    box-shadow: 0 0 10px rgba(86, 113, 245, 0.5);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #ffffff;
+    bottom: 0;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+    border-radius: 10px;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+h1 {
+    font-weight: 700;
+    color: #2a3a99;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.label {
+    font-weight: 700;
+    flex: 0 0 140px;
+    color: #2a3a99;
+    font-size: 1.1rem;
+    user-select: none;
+}
+
+.value {
+    flex: 1;
+    font-size: 1rem;
+    color: #344070;
+    max-width: 30vw;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.actions {
+    margin-top: 35px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    box-shadow: 6px 6px 12px #a0afff, -6px -6px 12px #e2e7ff;
+    border: none;
+    color: #2a3a99;
+    background-color: #d5dcff;
+    box-sizing: border-box;
+}
+
+.button:hover,
+.button:focus {
+    background-color: #2a3a99;
+    color: #f0f4ff;
+    box-shadow: inset 5px 5px 12px #5671f5, inset -5px -5px 12px #9aa6f9;
+    outline: none;
+}
+
+.button i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 640px) {
+    .container {
+        max-width: 90vw;
+        padding: 25px 20px 30px;
+    }
+
+    .details-card {
+        padding: 20px 20px 25px;
+    }
+
+    .label {
+        flex: 0 0 120px;
+        font-size: 1rem;
+    }
+
+    .value {
+        font-size: 0.9rem;
+    }
+
+    .button {
+        padding: 12px 22px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .label {
+        margin-bottom: 4px;
+        flex: none;
+        font-size: 0.95rem;
+    }
+
+    .value {
+        font-size: 0.9rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+body[data-perfil="cliente"] .modify-btn,
+body[data-perfil="cliente"] .remove-btn {
+    display: none !important;
+}

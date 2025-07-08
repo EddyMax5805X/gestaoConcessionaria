@@ -1,20 +1,13 @@
-<?php 
-    session_start();
-    $nome = $_SESSION['nome'];
-    $sobrenome = $_SESSION['sobrenome'] ?? '';
-    $email = $_SESSION['email'] ?? '';
-    $perfil = $_SESSION['perfil'] ?? '';
+<?php
+session_start();
 
-    $ultimo_login = isset($_COOKIE["ultimo_login_$nome"]) ? 
-                    htmlspecialchars($_COOKIE["ultimo_login_$nome"]) : 
-                    'Primeiro acesso';
+$nome = $_SESSION['nome'];
+$sobrenome = $_SESSION['sobrenome'] ?? '';
+$email = $_SESSION['email'] ?? '';
+$perfil = $_SESSION['perfil'] ?? '';
 
-    setcookie(
-        "ultimo_login_$nome",
-        date('d/m/Y H:i:s'),
-        time() + (30 * 24 * 60 * 60),
-        "/"
-    );
+$ultimo_login = $_COOKIE["ultimo_logout_$nome"] ?? 'Primeiro acesso';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

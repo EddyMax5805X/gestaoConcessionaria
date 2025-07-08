@@ -8,9 +8,10 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    include("../Controller/conexao.php");
-    include("../Controller/Cliente.php");
-    include("../Controller/metodos.php");
+    include_once("../../conexao.php");
+    include_once("../../Auditoria/Controller/Auditoria.php");
+    include_once("../../Clientes/Controller/Cliente.php");
+    include_once("../../Clientes/Controller/metodos.php");
 
     if (empty($_POST["nome"]) || empty($_POST["email"]) || empty($_POST["telefone"]) || empty($_POST["endereco"])) {
         echo "<p style='color: red;'>Por favor, preencha todos os campos.</p>";
@@ -20,9 +21,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $telefone = $conexao->real_escape_string($_POST["telefone"]);
         $endereco = $conexao->real_escape_string($_POST["endereco"]);
 
+          // Criar e salvar auditoria
+        $usuario = $_SESSION['nome'] . " " . $_SESSION['sobrenome'];
+        $perfil = $_SESSION['perfil'];
+        $acao = "Cadastro";
+        $tabela = "cliente";
+        $idRegistro = null;
+        $valores_anteriores = "---";
+        $valores_novos = "nome: $nome, email: $email, contacto: $telefone, endereco: $endereco";
+
+        $auditoria = new Auditoria(null, $usuario, $perfil, $acao, $tabela, $idRegistro, $valores_anteriores, $valores_novos, null);
         $cliente = new Cliente($nome, $email, $telefone, $endereco);
 
-        adicionarCliente($cliente);
+        adicionarCliente($cliente, $auditoria);
     }
 }
 ?>

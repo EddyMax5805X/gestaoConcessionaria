@@ -26,52 +26,40 @@ if (!$veiculo) {
 </head>
 <body data-perfil="<?php echo $perfil; ?>">
     <div class="perfil">
-        <p><span><?php echo $nome." ".$sobrenome;?></br>
-        <?php echo $email;?></span></br>
-        <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
+        <p><span><?php echo $nome . " " . $sobrenome; ?></br>
+        <?php echo $email; ?></span></br>
+        <span id="perfil"><strong>(<?php echo $perfil; ?>)</strong></span> </p>
         <i class="fa-solid fa-circle-user"></i>
     </div>
-        <header>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../Home/home2.php">Início</a></li>
-                    <li><a href="../View/listarVeiculo.php">Lista de Veículos</a></li>
-                    <li><a href="../View/cadastroVeiculo.php">Cadastrar Veículo</a></li>
-                </ul>
-            </nav>
-        </header>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../../Home/home2.php">Início</a></li>
+                <li><a href="../View/listarVeiculo.php">Lista de Veículos</a></li>
+                <li><a href="../View/cadastroVeiculo.php">Cadastrar Veículo</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="container">
         <h1>Detalhes do Veículo</h1>
 
         <div class="details-card">
-            <div class="detail-row">
-                <span class="label">ID:</span>
-                <span class="value"><?php echo $veiculo->getID(); ?></span>
-            </div>
-            <div class="detail-row">
-                <span class="label">Marca:</span>
-                <span class="value"><?php echo $veiculo->getMarca(); ?></span>
-            </div>
-            <div class="detail-row">
-                <span class="label">Modelo:</span>
-                <span class="value"><?php echo $veiculo->getModelo(); ?></span>
-            </div>
-            <div class="detail-row">
-                <span class="label">Ano:</span>
-                <span class="value"><?php echo $veiculo->getAno(); ?></span>
-            </div>
-            <div class="detail-row">
-                <span class="label">Preço:</span>
-                <span class="value">MZN <?php echo number_format($veiculo->getPreco(), 2, '.', ','); ?></span>
-            </div>
-            <div class="detail-row">
-                <span class="label">Status:</span>
-                <span class="value"><?php echo $veiculo->getStatus(); ?></span>
-            </div>
-            <div class="detail-row">
-                <span class="label">Descrição:</span>
-                <span class="value"><?php echo nl2br($veiculo->getDescricao()); ?></span>
-            </div>
+            <div class="detail-row"><span class="label">ID:</span><span class="value"><?php echo $veiculo->getID(); ?></span></div>
+            <div class="detail-row"><span class="label">Marca:</span><span class="value"><?php echo $veiculo->getMarca(); ?></span></div>
+            <div class="detail-row"><span class="label">Modelo:</span><span class="value"><?php echo $veiculo->getModelo(); ?></span></div>
+            <div class="detail-row"><span class="label">Ano:</span><span class="value"><?php echo $veiculo->getAno(); ?></span></div>
+            <div class="detail-row"><span class="label">Preço:</span><span class="value">MZN <?php echo number_format($veiculo->getPreco(), 2, '.', ','); ?></span></div>
+            <div class="detail-row"><span class="label">Status:</span><span class="value"><?php echo $veiculo->getStatus(); ?></span></div>
+            <div class="detail-row"><span class="label">Descrição:</span><span class="value"><?php echo nl2br($veiculo->getDescricao()); ?></span></div>
+
+            <!-- Novos campos -->
+            <div class="detail-row"><span class="label">Chassi:</span><span class="value"><?php echo $veiculo->getChassi(); ?></span></div>
+            <div class="detail-row"><span class="label">Número do Chassi:</span><span class="value"><?php echo $veiculo->getNumeroChassi(); ?></span></div>
+            <div class="detail-row"><span class="label">Cor:</span><span class="value"><?php echo $veiculo->getCor(); ?></span></div>
+            <div class="detail-row"><span class="label">Cilindrada:</span><span class="value"><?php echo $veiculo->getCilindrada(); ?></span></div>
+            <div class="detail-row"><span class="label">Transmissão:</span><span class="value"><?php echo $veiculo->getTransmissao(); ?></span></div>
+            <div class="detail-row"><span class="label">Quilometragem:</span><span class="value"><?php echo $veiculo->getQuilometragem(); ?> km</span></div>
+            <div class="detail-row"><span class="label">Combustível:</span><span class="value"><?php echo $veiculo->getCombustivel(); ?></span></div>
 
             <div class="actions">
                 <a href="../View/updateVeiculo.php?id=<?php echo $veiculo->getID(); ?>" class="button modify-btn">
