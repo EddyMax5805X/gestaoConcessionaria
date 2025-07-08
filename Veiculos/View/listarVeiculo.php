@@ -22,19 +22,22 @@
     <div class="video">
         <video src="../../Home/homeVid02.mp4" autoplay muted loop></video>
     </div>
-            <header>
-                <nav id="navbar" class="nav-enhanced">
-                    <i class="fa-solid fa-house"></i>
-                    <ul id="nav_list">
-                        <li class="nav_item" id="btnClientes"><a href="../Clientes/View/verClientes.php">Clientes</a></li>
-                        <li class="nav_item"><a href="../Veiculos/View/listarVeiculo.php">Veículos</a></li>
-                        <li class="nav_item" id="btnVendas"><a href="../Vendas/View/listarVendas.php">Vendas</a></li>
-                        <li class="nav_item"><a href="../Usuarios/cadastroUsuario.php">Cadastro</a></li>
-                        <li class="nav_item"><a href="../Auditoria/View/listaAuditoria.php">Auditoria</a></li>
-                        <li class="nav_item"><a href="../Usuarios/index.php">Sair</a></li>
-                    </ul>
-                </nav>
-            </header>
+    <header>
+        <nav>
+            <a id="linkHome" href="../../Home/home2.php"><i class="fa-solid fa-house"></i></a>
+            <ul>
+                <li class="a"><a href="cadastroVeiculo.php">Cadastrar Veiculo</a></li>
+                <li class="a"><a href="../../Clientes/View/verClientes.php">Clientes</a></li>
+                <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
+            </ul>
+            <div class="perfil">
+                <p><span><?php echo $nome_S." ".$sobrenome_S . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil_S;?>)</strong></span></br>
+                        <?php echo $email_S;?></span></br>
+                </p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+        </nav>
+    </header>
     <h1>Gestão de Veículos</h1>
     <table>
         <thead>

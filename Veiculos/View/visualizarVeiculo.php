@@ -25,19 +25,23 @@ if (!$veiculo) {
     <link rel="stylesheet" href="../style/visualizar.css" />
 </head>
 <body data-perfil="<?php echo $perfil; ?>">
-    <div class="perfil">
-        <p><span><?php echo $nome . " " . $sobrenome; ?></br>
-        <?php echo $email; ?></span></br>
-        <span id="perfil"><strong>(<?php echo $perfil; ?>)</strong></span> </p>
-        <i class="fa-solid fa-circle-user"></i>
+    <div class="video">
+        <video src="../../Home/homeVid02.mp4" autoplay muted loop></video>
     </div>
     <header>
         <nav>
-            <ul class="nav-links">
-                <li><a href="../../Home/home2.php">Início</a></li>
-                <li><a href="../View/listarVeiculo.php">Lista de Veículos</a></li>
-                <li><a href="../View/cadastroVeiculo.php">Cadastrar Veículo</a></li>
+            <a id="linkHome" href="../../Home/home2.php"><i class="fa-solid fa-house"></i></a>
+            <ul>
+                <li class="a"><a href="listarVeiculo.php">Listar Veiculos</a></li>
+                <li class="a"><a href="../../Clientes/View/verClientes.php">Clientes</a></li>
+                <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
             </ul>
+            <div class="perfil">
+                <p><span><?php echo $nome." ".$sobrenome . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
+                        <?php echo $email;?></span></br>
+                </p>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
         </nav>
     </header>
     <div class="container">

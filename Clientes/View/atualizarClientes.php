@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     </div>
     <header>
         <nav>
-            <a id="linkHome" href="../../Home/homeVersion3.php"><i class="fa-solid fa-house"></i></a>
+            <a id="linkHome" href="../../Home/home2.php"><i class="fa-solid fa-house"></i></a>
             <ul>
                 <li class="a"><a href="verClientes.php">Listar Clientes</a></li>
                 <li class="a"><a href="../../Veiculos/View/listarVeiculo.php">Veiculos</a></li>
