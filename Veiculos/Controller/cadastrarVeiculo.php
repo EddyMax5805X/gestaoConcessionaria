@@ -14,17 +14,17 @@
         $cilindrada = $_POST['cilindrada'];
         $transmissao = $_POST['transmissao'];
         $numeroChassi = $_POST['numeroChassi'];
-        $quilometragem = $_POST['quilometragem'];
+        //$quilometragem = $_POST['quilometragem'];
         $combustivel = $_POST['combustivel'];
 
 
         
         if (empty($marca) or empty($modelo) or empty($ano) or empty($preco) or empty($status) or empty($desc)
-         or empty($chassi) or empty($cor) or empty($cilindrada) or empty($transmissao) or empty($numeroChassi) or empty($quilometragem) or empty($combustivel) ) {
+         or empty($chassi) or empty($cor) or empty($cilindrada) or empty($transmissao) or empty($numeroChassi) or empty($combustivel) ) {
             echo "<script>alert('Por favor, preencha todos os campos!')</script>";
         } else {
             $veiculo = new Veiculo(null, $marca, $modelo, $ano, $preco, $status, $desc,$chassi,$cor,
-            $cilindrada,$transmissao,$numeroChassi,$quilometragem,$combustivel);
+            $cilindrada,$transmissao,$numeroChassi, null, $combustivel);
             addVeiculo($veiculo);
         }
     }

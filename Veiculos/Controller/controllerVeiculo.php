@@ -17,7 +17,7 @@
         $numeroChassi= $veiculo->getNumeroChassi();
         $quilometragem= $veiculo->getQuilometragem();
         $combustivel= $veiculo->getCombustivel();
-        $sql = "INSERT INTO veiculo (marca, modelo, ano, preco, status, descricao,preco,chassi,cor,cilindrada,transmissao, numeroChassi,quilometragem,combustivel) VALUES ('$marca', '$modelo', $ano, $preco, '$status', '$desc','$chassi','$cor','$cilindrada','$transmissao','$numeroChassi','$quilometragem','$combustivel')";
+        $sql = "INSERT INTO veiculo VALUES (null, '$marca', '$modelo','$chassi','$cilindrada','$numeroChassi','$cor','$combustivel','$transmissao','$quilometragem', $ano, $preco, '$status', '$desc')";
 
         $result = mysqli_query($conexao, $sql);
         if ($result) {
