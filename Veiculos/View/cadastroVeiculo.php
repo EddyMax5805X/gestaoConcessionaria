@@ -1,12 +1,10 @@
 <?php
-
     session_start();
 
     $nome =  $_SESSION['nome'];
     $sobrenome = $_SESSION['sobrenome'];
     $email = $_SESSION['email'];
     $perfil = $_SESSION['perfil'];
-
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Formulário de Cadastro de Veículos</title>
     <link rel="stylesheet" href="../style/style.css">
 </head>
@@ -52,32 +50,88 @@
                 </select>
                 <label for="marca">Marca</label>
             </div>
+            
             <div class="inputs modelo">
                 <input type="text" name="modelo" id="modelo" required placeholder="Digite o modelo do veículo">
                 <label for="modelo">Modelo</label>
             </div>
+            
             <div class="inputs ano">
-                <input type="number" name="ano" id="ano" min="1950" max="2025" placeholder="Digite o ano de fabrico do veículo">
+                <input type="number" name="ano" id="ano" min="1950" max="2025" placeholder="Digite o ano de fabrico do veículo" required>
                 <label for="ano">Ano de fabrico</label>
             </div>
+            
             <div class="inputs preco">
-                <input type="number" name="preco" id="preco" maxlength="8" placeholder="Digite o preço do veículo" required>
+                <input type="number" name="preco" id="preco" step="0.01" placeholder="Digite o preço do veículo" required>
                 <label for="preco">Preço</label>
             </div>
+            
             <div class="radios status">
                 <label>Status do veículo:</label><br>
-                <input type="radio" name="status" id="status1" value="Disponivel" required checked><label for="status1">Disponivel</label>
+                <input type="radio" name="status" id="status1" value="Disponivel" required checked><label for="status1">Disponível</label>
                 <input type="radio" name="status" id="status2" value="Vendido"><label for="status2">Vendido</label>
                 <input type="radio" name="status" id="status3" value="Reservado"><label for="status3">Reservado</label>
             </div>
-            <div class="inputs desc">
-                <textarea name="desc" id="desc" placeholder="Descrição do veículo (caracteristicas, especificações, etc)" ></textarea>
-                <label for="desc">Descrição</label>
+            
+            <div class="inputs chassi">
+                <select name="chassi" id="chassi" required>
+                    <option value="" hidden disabled selected>Selecione o tipo de chassi</option>
+                    <option value="Monobloco">Monobloco</option>
+                    <option value="Sobre-chassi">Sobre-chassi</option>
+                    <option value="Space-frame">Space-frame</option>
+                    <option value="Escada">Escada</option>
+                </select>
+                <label for="chassi">Tipo de Chassi</label>
             </div>
+            
+            <div class="inputs cor">
+                <input type="text" name="cor" id="cor" required placeholder="Digite a cor do veículo">
+                <label for="cor">Cor</label>
+            </div>
+            
+            <div class="inputs cilindrada">
+                <input type="number" name="cilindrada" id="cilindrada" placeholder="Digite a cilindrada (cc)" required>
+                <label for="cilindrada">Cilindrada (cc)</label>
+            </div>
+            
+            <div class="radios transmissao">
+                <label>Tipo de transmissão:</label><br>
+                <input type="radio" name="transmissao" id="transmissao1" value="Manual" required checked><label for="transmissao1">Manual</label>
+                <input type="radio" name="transmissao" id="transmissao2" value="Automatico"><label for="transmissao2">Automático</label>
+                <input type="radio" name="transmissao" id="transmissao3" value="Semi-automatico"><label for="transmissao3">Semi-automático</option>
+            </div>
+            
+            <div class="inputs numeroChassi">
+                <input type="text" name="numeroChassi" id="numeroChassi" required placeholder="Digite o número do chassi (VIN)">
+                <label for="numeroChassi">Número do Chassi (VIN)</label>
+            </div>
+            
+            <div class="inputs quilometragem">
+                <input type="number" name="quilometragem" id="quilometragem" placeholder="Digite a quilometragem" required>
+                <label for="quilometragem">Quilometragem (km)</label>
+            </div>
+            
+            <div class="inputs combustivel">
+                <select name="combustivel" id="combustivel" required>
+                    <option value="" hidden disabled selected>Selecione o tipo de combustível</option>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Eletrico">Elétrico</option>
+                    <option value="Hibrido">Híbrido</option>
+                    <option value="Flex">Flex (Gasolina/Álcool)</option>
+                </select>
+                <label for="combustivel">Combustível</label>
+            </div>
+            
+            <div class="inputs desc">
+                <textarea name="descricao" id="descricao" placeholder="Descrição do veículo (caracteristicas, especificações, etc)" required></textarea>
+                <label for="descricao">Descrição</label>
+            </div>
+            
             <span id="msgErro"></span>
             <div class="btns">
                 <input type="reset" value="Limpar" name="limpar" class="buttons limpar">
-                <input type="submit" value="Submeter"  name="submit" class="buttons submit">
+                <input type="submit" value="Submeter" name="submit" class="buttons submit">
             </div>
         </form>
     </div>

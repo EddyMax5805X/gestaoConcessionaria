@@ -19,23 +19,6 @@ if (isset($_POST["entrar"])) {
         $_SESSION['email'] = $usuario->getEmail();
         $_SESSION['perfil'] = $usuario->getPerfil();
 
-<<<<<<< HEAD
-        setcookie(
-            'ultimo_login_exibicao',
-            $_COOKIE['ultimo_login_registro'] ?? 'Primeiro acesso',
-            time() + (60 * 24 * 60 * 60), // 60 dias
-            "/"
-        );
-        
-        setcookie(
-            'ultimo_login_registro',
-            date('d/m/Y H:i:s'),
-            time() + (60 * 24 * 60 * 60), // 60 dias
-            "/"
-        );
-        
-        header("Location: ../../../Home/homeVersion3.php");
-=======
         //Auditoria
         $texto = "Senha: ----,";
         if (isset($unome)) {
@@ -56,7 +39,6 @@ if (isset($_POST["entrar"])) {
         adicionarAuditoria($auditoria);
 
         header("Location: ../../../Home/home2.php");
->>>>>>> f0997e8 (Auditoria)
         exit();
     }
     echo "<script>alert('Usuário ou senha incorretos!');

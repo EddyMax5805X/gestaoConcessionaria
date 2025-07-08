@@ -48,18 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="video">
         <video src="../../Home/homeVid02.mp4" autoplay muted loop></video>
-=======
-
-    <div class="perfil">
-        <p><span><?php echo $nome . " " . $sobrenome; ?></br>
-                <?php echo $email; ?></span></br>
-            <span id="perfil"><strong>(<?php echo $perfil; ?>)</strong></span>
-        </p>
-        <i class="fa-solid fa-circle-user"></i>
->>>>>>> f0997e8 (Auditoria)
     </div>
     <header>
         <nav>

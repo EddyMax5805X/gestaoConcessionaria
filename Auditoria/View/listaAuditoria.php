@@ -62,7 +62,7 @@ $resultado = $conexao->query($sql);
             <option value="Login" <?= $acao == 'Login' ? 'selected' : '' ?>>Login</option>
             <option value="Atualizar" <?= $acao == 'Atualizar' ? 'selected' : '' ?>>Atualizar</option>
             <option value="Remover" <?= $acao == 'Remover' ? 'selected' : '' ?>>Remover</option>
-            <option value="Cadastrar" <?= $acao == 'Cadastrar' ? 'selected' : '' ?>>Cadastrar</option>
+            <option value="Cadastro" <?= $acao == 'Cadastro' ? 'selected' : '' ?>>Cadastro</option>
         </select>
         <button type="submit">Filtrar</button>
         <button type="button" onclick="window.location='<?= $_SERVER['PHP_SELF'] ?>'">Limpar</button>

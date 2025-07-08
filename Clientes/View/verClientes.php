@@ -66,31 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 <li class="a"><a href="../../Vendas/View/listarVendas.php">Vendas</a></li>
             </ul>
             <div class="perfil">
-                <p><span><?php echo $nome." ".$sobrenome . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
-                        <?php echo $email;?></span></br>
+                <p><span><?php echo $nome_S." ".$sobrenome_S . " - " ;?> <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span></br>
+                        <?php echo $email_S;?></span></br>
                 </p>
                 <i class="fa-solid fa-circle-user"></i>
             </div>
         </nav>
     </header>
-    <div class="container">
-<<<<<<< HEAD
-=======
-        <div class="perfil">
-            <p><span><?php echo $nome_S." ".$sobrenome_S;?></br>
-            <?php echo $email;?></span></br>
-            <span id="perfil"><strong>(<?php echo $perfil;?>)</strong></span> </p>
-            <i class="fa-solid fa-circle-user"></i>
-        </div>
-        <header>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../Home/home2.php">Início</a></li>
-                    <li><a href="../View/cadastroClientes.php">Cadastrar Cliente</a></li>
-                </ul>
-            </nav>
-        </header>
->>>>>>> f0997e8 (Auditoria)
         <h1>Gestão de Clientes</h1>
         <table>
             <thead>

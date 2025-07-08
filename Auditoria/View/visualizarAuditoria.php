@@ -23,7 +23,7 @@ if (!$auditoria) {
     <meta charset="UTF-8" />
     <title>Visualizar Auditoria - ID <?php echo $auditoria->getId(); ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="../style/visualizar2.css" />
+    <link rel="stylesheet" href="../style/visualizar.css" />
 </head>
 
 <body data-perfil="<?php echo $perfil; ?>">
@@ -86,10 +86,7 @@ if (!$auditoria) {
                     <span class="value"><?php echo nl2br(str_replace(',', '<br>', $auditoria->getValoresNovos())); ?></span>
                 </div>
             <?php elseif ($auditoria->getAcao() === "Login"): ?>
-                <div class="detail-row">
-                    <span class="label">Dados do Usuario:</span>
-                    <span class="value"><?php echo nl2br(str_replace(',', '<br>', $auditoria->getValoresNovos())); ?></span>
-                </div>
+    
             <?php else: ?>
                 <div class="detail-row">
                     <span class="label">Erro:</span>
