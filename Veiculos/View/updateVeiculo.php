@@ -121,7 +121,6 @@ $veiculo = searchVeiculo($id);
                 <input type="text" name="numeroChassi" required value="<?php echo $veiculo->getNumeroChassi(); ?>">
                 <label for="numeroChassi">Número do Chassi (VIN)</label>
             </div>
-
             <div class="inputs quilometragem">
                 <input type="number" name="quilometragem" required value="<?php echo $veiculo->getQuilometragem(); ?>">
                 <label for="quilometragem">Quilometragem (km)</label>

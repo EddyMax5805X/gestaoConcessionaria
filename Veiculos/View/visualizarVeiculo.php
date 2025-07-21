@@ -7,7 +7,6 @@ $email = $_SESSION['email'];
 $perfil = $_SESSION['perfil'];
 
 $id = $_GET['id'];
-
 include_once("../Controller/controllerVeiculo.php");
 $veiculo = searchVeiculo($id);
 

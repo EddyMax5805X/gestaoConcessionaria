@@ -4,7 +4,6 @@ $nome = $_SESSION['nome'] ?? '';
 $sobrenome = $_SESSION['sobrenome'] ?? '';
 $perfil = $_SESSION['perfil'] ?? '';
 
-
 include_once("../Controller/controllerVeiculo.php");
 include_once("../Controller/veiculo.php");
 include_once("../../conexao.php");

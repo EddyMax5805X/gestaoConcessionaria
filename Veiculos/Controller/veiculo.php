@@ -48,8 +48,6 @@
         function getQuilometragem() {return $this->quilometragem;}
         function getCombustivel() {return $this-> combustivel;}
 
-        
-
 
         function setID($ID) { $this->ID = $ID; }
         function setMarca($marca) { $this->marca = $marca; }

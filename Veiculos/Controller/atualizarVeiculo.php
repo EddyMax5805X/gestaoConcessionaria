@@ -9,7 +9,7 @@ $perfil = $_SESSION['perfil'];
 include_once("../Controller/controllerVeiculo.php");
 include_once("../../conexao.php");
 include_once(__DIR__ ."/../../Auditoria/Controller/metodos.php");
-include_once(__DIR__ ."/../../Auditoria/Controller/Auditoria.php");
+include_once(__DIR__ ."/../../Auditoria/Controller/Auditoria.php"); 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];

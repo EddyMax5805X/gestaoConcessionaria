@@ -58,7 +58,6 @@
     
     function updateVeiculo($veiculo, Auditoria $auditoria) {
     global $conexao;
-
     $id = $veiculo->getID();
     $marca = $veiculo->getMarca();
     $modelo = $veiculo->getModelo();

@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     $nome_S =  $_SESSION['nome'];
     $sobrenome_S = $_SESSION['sobrenome'];
     $email_S = $_SESSION['email'];
