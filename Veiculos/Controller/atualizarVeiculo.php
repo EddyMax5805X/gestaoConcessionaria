@@ -115,27 +115,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $texto_Actual .= "Combustível: $combustivel";
     }
 
-    // Remove a vírgula final se existir
     $texto_Anterior = rtrim($texto_Anterior, ", ");
     $texto_Actual = rtrim($texto_Actual, ", ");
 
-    // Prepara dados para auditoria
     $usuario = $nomeS . " " . $sobrenomeS;
     $acao = "Atualizar";
     $tabela = "veiculo";
     $idRegistro = $id;
 
-    // Cria objeto de auditoria
     $auditoria = new Auditoria(
         null,                  
-        $usuario,              // Nome do usuário
-        $perfil,               // Perfil do usuário
-        $acao,                 // Ação realizada
-        $tabela,               // Tabela afetada
-        $idRegistro,           // ID do registro alterado
-        $texto_Anterior,       // Valores anteriores
-        $texto_Actual,         // Valores novos
-        null                   // Data/hora (pode ser preenchido automaticamente)
+        $usuario,              
+        $perfil,               
+        $acao,                 
+        $tabela,               
+        $idRegistro,           
+        $texto_Anterior,       
+        $texto_Actual,         
+        null                  
     );
 
     $veiculo = new Veiculo(

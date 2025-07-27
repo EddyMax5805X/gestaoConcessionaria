@@ -54,8 +54,6 @@ if (!$veiculo) {
             <div class="detail-row"><span class="label">Preço:</span><span class="value">MZN <?php echo number_format($veiculo->getPreco(), 2, '.', ','); ?></span></div>
             <div class="detail-row"><span class="label">Status:</span><span class="value"><?php echo $veiculo->getStatus(); ?></span></div>
             <div class="detail-row"><span class="label">Descrição:</span><span class="value"><?php echo nl2br($veiculo->getDescricao()); ?></span></div>
-
-            <!-- Novos campos -->
             <div class="detail-row"><span class="label">Chassi:</span><span class="value"><?php echo $veiculo->getChassi(); ?></span></div>
             <div class="detail-row"><span class="label">Número do Chassi:</span><span class="value"><?php echo $veiculo->getNumeroChassi(); ?></span></div>
             <div class="detail-row"><span class="label">Cor:</span><span class="value"><?php echo $veiculo->getCor(); ?></span></div>

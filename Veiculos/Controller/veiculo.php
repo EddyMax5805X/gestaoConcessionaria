@@ -62,6 +62,7 @@
         function setTransmissao($transmissao) {$this->transmissao=$transmissao;}
         function setNumeroChassi($numeroChassi) {$this->numeroChassi= $numeroChassi;}
         function setQuilometragem($quilometragem) {$this->quilometragem= $quilometragem;}
-        function setCombustivel($combustivel) {$this-> combustivel= $combustivel;}
+        function setCombustivel($combustivel) {$this->combustivel = $combustivel;}
+
     }
 ?>

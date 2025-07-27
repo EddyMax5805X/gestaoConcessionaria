@@ -108,25 +108,29 @@ function atualizarVenda($venda, Auditoria $auditoria) {
         </script>";
     }
 }
-
-
 function removerVendas($id, Auditoria $auditoria) {
     global $conexao;
 
     $id = mysqli_real_escape_string($conexao, $id);
     $sql = "DELETE FROM venda WHERE id='$id'";
-    $result = mysqli_query($conexao, $sql);
+    try {
+        $result = mysqli_query($conexao, $sql);
 
-    if ($result) {
-        if ($auditoria !== null) {
-            $auditoria->setIDdoRegistro($id);
-            adicionarAuditoria($auditoria);
+        if ($result) {
+            if ($auditoria !== null) {
+                $auditoria->setIDdoRegistro($id);
+                adicionarAuditoria($auditoria);
+            }
+            echo "<script>alert('Venda removida com sucesso!');</script>";
+            header("Location: ../View/listarVendas.php");
+            exit();
+        } else {
+            echo "<script>alert('Erro na remoção da venda: " . $conexao->error . "');</script>";
         }
-        echo "<script>alert('Venda removida com sucesso!');</script>";
-        header("Location: ../View/listarVendas.php");
-        exit();
-    } else {
-        echo "<script>alert('Erro na remoção da venda!');</script>";
+    } catch (mysqli_sql_exception $ex) {
+        echo "<script>alert('ERRO! Não pode remover a venda pois pode estar ligada a outro registro.');
+            window.location.href = '../View/listarVendas.php';
+        </script>";
     }
 }
 ?>

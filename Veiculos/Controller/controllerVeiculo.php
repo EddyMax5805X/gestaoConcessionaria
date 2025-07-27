@@ -41,7 +41,22 @@
         $result = mysqli_query($conexao, $sql);
         if ($result) {  
             while($rs = mysqli_fetch_assoc($result)) {
-                $carro = new Veiculo($rs['id'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'], $rs['descricao'], $rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
+            $carro = new Veiculo(
+                $rs['id'],
+                $rs['marca'],
+                $rs['modelo'],
+                $rs['ano'],
+                $rs['preco'],
+                $rs['status'],
+                $rs['descricao'],
+                $rs['chassi'],
+                $rs['cor'],
+                $rs['cilindrada'],
+                $rs['transmissao'],
+                $rs['numeroChassi'],
+                $rs['quilometragem'],
+                $rs['combustivel']
+            );
                 array_push($veiculos, $carro);
             }
         }
@@ -52,7 +67,22 @@
         $sql = "SELECT * FROM veiculo WHERE id='$id'";
         $result = mysqli_query($conexao, $sql);
         $rs = mysqli_fetch_assoc($result);
-        $veiculo = new Veiculo($rs['ID'], $rs['marca'], $rs['modelo'], $rs['ano'],$rs['preco'],$rs['status'], $rs['descricao'], $rs['chassi'],$rs['cor'],$rs['cilindrada'],$rs['transmissao'],$rs['numeroChassi'],$rs['quilometragem'], $rs['combustivel']);
+        $veiculo = new Veiculo(
+        $rs['ID'],
+        $rs['marca'],
+        $rs['modelo'],
+        $rs['ano'],
+        $rs['preco'],
+        $rs['status'],
+        $rs['descricao'],
+        $rs['chassi'],
+        $rs['cor'],
+        $rs['cilindrada'],
+        $rs['transmissao'],
+        $rs['numeroChassi'],
+        $rs['quilometragem'],
+        $rs['combustivel']
+    );
         return $veiculo;
     }
     
@@ -109,20 +139,28 @@
 }
 
 
-    function removeVeiculo($id, Auditoria $auditoria) {
-        global $conexao;
-        $sql = "DELETE FROM veiculo WHERE id='$id'";
+function removeVeiculo($id, Auditoria $auditoria) {
+    global $conexao;
+    $sql = "DELETE FROM veiculo WHERE id='$id'";
+    try {
         $result = mysqli_query($conexao, $sql);
+
         if ($result) {
             if ($auditoria !== null) {
-            $auditoria->setIDdoRegistro($id);
-            adicionarAuditoria($auditoria);
-        }
+                $auditoria->setIDdoRegistro($id);
+                adicionarAuditoria($auditoria);
+            }
             echo "<script>alert('Veículo removido com sucesso!')</script>";
             header("Location: ../View/listarVeiculo.php");
+            exit();
         } else {
-            echo "<script>alert('Erro na remoção do veículo!')</script>";
-        } 
+            echo "<script>alert('Erro na remoção do veículo: " . $conexao->error . "')</script>";
+        }
+    } catch (mysqli_sql_exception $ex) {
+    echo "<script>
+        alert('ERRO! Não pode remover o veículo, pois está ligado a outra tabela! Erro na atualização do veículo!');
+        window.location.href = '../View/listarVeiculo.php';
+    </script>";
     }
-
+}
 ?>

@@ -63,8 +63,8 @@ $ultimo_login = $_COOKIE["ultimo_logout_$nome"] ?? 'Primeiro acesso';
             </header>
 
             <div id="texto">
-                <h1>Bem-vindo à sua área administrativa da concessionária!</h1>
-                <p>Explore nosso sistema para gerenciar clientes, veículos e vendas de forma eficiente.</p>
+                <h1>Bem-vindo ao Sistema de Gerenciamento</h1>
+                <p>Esta é uma plataforma para gerenciar veículos, clientes e vendas.</p>
             </div>
 
             <div class="perfil">

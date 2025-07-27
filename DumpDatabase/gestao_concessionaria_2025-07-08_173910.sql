@@ -4,9 +4,12 @@
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.32-MariaDB
 
+CREATE DATABASE  IF NOT EXISTS gestao_concessionaria
+DEFAULT CHARACTER SET = 'utf8'
+DEFAULT COLLATE = 'utf8_general_ci';
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;  
 /*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
@@ -14,6 +17,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+use gestao_concessionaria;
 
 --
 -- Table structure for table `auditoria`
@@ -130,8 +134,15 @@ CREATE TABLE `veiculo` (
 --
 
 /*!40000 ALTER TABLE `veiculo` DISABLE KEYS */;
-INSERT INTO `veiculo` VALUES (7,'Audi','M5','',1.0,'',NULL,'Gasolina','Manual',0.00,1950,1.00,'Disponivel','dc'),(10,'Ford','Raptor','Monobloco',9.9,'Reservado','hgfdsfgjhg','Gasolina','Manual',3.20,2020,34444040.00,'Disponivel','Gasóleo'),(11,'Nissan','Skyline','AShjkjhg',2.5,'5678IUJHG','Roxa','Gasolina','Manual',0.00,2015,1231000.00,'Disponivel','hgfddrtyuikjhgiujn vfyhjnm bcfgtyuhjkm nbvgftgyhjn bvghn bvghhjmn hjujmn ujkmn '),(12,'Toyota','Corolla','Monobloco',9.9,'JH4KA4650MC012345','Branco','Gasolina','Manual',50000.00,2022,1200000.00,'Disponivel','Económico e confiável'),(13,'BMW','320i','Space-frame',9.9,'WBA3A5C58EF600123','Preto','Gasolina','Automático',30000.00,2019,2300000.00,'Disponivel','Desempenho e conforto'),(14,'Honda','Civic','Monobloco',9.9,'1HGCM82633A004352','Cinza','','Manual',40000.00,2020,1750000.00,'Reservado','Compacto e ágil');
+INSERT INTO `veiculo` (ID, marca, modelo, chassi, cilindrada, numeroChassi, cor, combustivel, transmissao, quilometragem, ano, preco, status, descricao) VALUES
+(7,'Audi','M5','',1.0,'',NULL,'Gasolina','Manual',0.00,1950,1.00,'Disponivel','dc'),
+(10,'Ford','Raptor','Monobloco',9.9,'Reservado','hgfdsfgjhg','Gasolina','Manual',3.20,2020,34444040.00,'Disponivel','Gasóleo'),
+(11,'Nissan','Skyline','AShjkjhg',2.5,'5678IUJHG','Roxa','Gasolina','Manual',0.00,2015,1231000.00,'Disponivel','hgfddrtyuikjhgiujn vfyhjnm bcfgtyuhjkm nbvgftgyhjn bvghn bvghhjmn hjujmn ujkmn '),
+(12,'Toyota','Corolla','Monobloco',9.9,'JH4KA4650MC012345','Branco','Gasolina','Manual',50000.00,2022,1200000.00,'Disponivel','Económico e confiável'),
+(13,'BMW','320i','Space-frame',9.9,'WBA3A5C58EF600123','Preto','Gasolina','Automático',30000.00,2019,2300000.00,'Disponivel','Desempenho e conforto'),
+(14,'Honda','Civic','Monobloco',9.9,'1HGCM82633A004352','Cinza','Gasolina','Manual',40000.00,2020,1750000.00,'Reservado','Compacto e ágil');
 /*!40000 ALTER TABLE `veiculo` ENABLE KEYS */;
+
 
 --
 -- Table structure for table `venda`

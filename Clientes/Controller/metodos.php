@@ -46,7 +46,6 @@ function removerCliente($id, $auditoria) {
     } catch (mysqli_sql_exception $ex) {
         echo "<script>alert('ERRO! Não pode remover o cliente uma vez que tem uma ligação com um veículo!')</script>";
     }
-    
 }
 
 function atualizarCliente($cliente, $auditoria) {

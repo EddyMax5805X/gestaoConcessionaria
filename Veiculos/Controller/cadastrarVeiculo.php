@@ -10,7 +10,6 @@ include_once("../../conexao.php");
 include_once("../../Auditoria/Controller/Auditoria.php");
 
 if (isset($_POST['submit'])) {
-    // Recebe e sanitiza os dados do formulário
     $marca = $conexao->real_escape_string($_POST['marca']);
     $modelo = $conexao->real_escape_string($_POST['modelo']);
     $ano = $conexao->real_escape_string($_POST['ano']);
@@ -23,34 +22,30 @@ if (isset($_POST['submit'])) {
     $numeroChassi = $conexao->real_escape_string($_POST['numeroChassi']);
     $quilometragem = $conexao->real_escape_string($_POST['quilometragem']);
     $combustivel = $conexao->real_escape_string($_POST['combustivel']);
-    $desc = $conexao->real_escape_string($_POST['descricao']);
+    $desc = $conexao->real_escape_string($_POST['desc']);
 
-    // Valida campos obrigatórios
-        // Prepara os dados para auditoria
         $usuario = $nome . " " . $sobrenome;
         $acao = "Cadastro";
         $tabela = "veiculo";
         $idRegistro = null;
         $valores_anteriores = "---";
         
-        // Formata os novos valores para auditoria
         $valores_novos = "marca: $marca, modelo: $modelo, ano: $ano, preco: $preco, ";
         $valores_novos .= "status: $status, descricao: $desc, chassi: $chassi, cor: $cor, ";
         $valores_novos .= "cilindrada: $cilindrada, transmissao: $transmissao, ";
         $valores_novos .= "numeroChassi: $numeroChassi, quilometragem: $quilometragem, ";
         $valores_novos .= "combustivel: $combustivel";
 
-        // Cria o objeto de auditoria
         $auditoria = new Auditoria(
-            null,                   // ID da auditoria (auto-increment)
-            $usuario,              // Nome do usuário
-            $perfil,               // Perfil do usuário
-            $acao,                 // Ação realizada
-            $tabela,               // Tabela afetada
-            $idRegistro,           // ID do registro (null para cadastro)
-            $valores_anteriores,   // Valores anteriores ("---" para cadastro)
-            $valores_novos,        // Valores novos
-            null                   // D
+            null,                   
+            $usuario,             
+            $perfil,               
+            $acao,                 
+            $tabela,               
+            $idRegistro,           
+            $valores_anteriores,   
+            $valores_novos,        
+            null                   
         );
 
         $veiculo = new Veiculo(

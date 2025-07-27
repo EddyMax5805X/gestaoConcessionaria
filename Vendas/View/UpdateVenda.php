@@ -28,7 +28,7 @@ $venda = searchVendas($id);
     </div>
     <header>
         <nav>
-            <a id="linkHome" href="../../Home/homeVersion3.php"><i class="fa-solid fa-house"></i></a>
+            <a id="linkHome" href="../../Home/home2.php"><i class="fa-solid fa-house"></i></a>
             <ul>
                 <li class="a"><a href="listarVendas.php">Listar Vendas</a></li>
                 <li class="a"><a href="../../Clientes/View/verClientes.php">Clientes</a></li>
